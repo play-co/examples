@@ -1,0 +1,29 @@
+{
+    "appID": "00000000000000000000000000000000",
+    "shortName": "advRenderingBuffers",
+    "title": "Advanced Rendering: Buffers",
+    "group": "graphics",
+    "studio": {
+        "name": "GameClosure demo",
+        "domain": "gameclosure.com",
+        "stagingDomain": "staging.example.com"
+    },
+    "supportedOrientations": [
+        "portrait"
+    ],
+    "description": "Rendering in offscreen buffers",
+    "doc": "http://doc.gameclosure.com/example/advrendering-buffers/",
+    "resources": {},
+    "targets": {},
+    "groups": {},
+    "android": {
+        "versionCode": 1,
+        "icons": {}
+    },
+    "ios": {
+        "icons": {}
+    },
+    "sdkVersion": "dev-0.1.0",
+    "icon": false,
+    "splash": {}
+}

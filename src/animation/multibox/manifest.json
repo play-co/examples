@@ -1,0 +1,29 @@
+{
+    "appID": "00000000000000000000000000000000",
+    "shortName": "multiboxAnimation",
+    "title": "Animation: Multi Box",
+    "group": "graphics",
+    "studio": {
+        "name": "GameClosure demo",
+        "domain": "gameclosure.com",
+        "stagingDomain": "staging.example.com"
+    },
+    "supportedOrientations": [
+        "portrait"
+    ],
+    "description": "Animating multiple views.",
+    "doc": "http://doc.gameclosure.com/example/animation-multibox/",
+    "android": {
+        "versionCode": 1,
+        "icons": {}
+    },
+    "ios": {
+        "icons": {}
+    },
+    "resources": {},
+    "targets": {},
+    "groups": {},
+    "sdkVersion": "dev-0.1.0",
+    "icon": false,
+    "splash": {}
+}

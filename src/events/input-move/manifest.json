@@ -1,0 +1,29 @@
+{
+    "appID": "00000000000000000000000000000000",
+    "shortName": "eventsInputMove",
+    "title": "Events: Move Input",
+    "group": "events",
+    "studio": {
+        "name": "GameClosure demo",
+        "domain": "gameclosure.com",
+        "stagingDomain": "staging.example.com"
+    },
+    "supportedOrientations": [
+        "portrait"
+    ],
+    "android": {
+        "versionCode": 1,
+        "icons": {}
+    },
+    "ios": {
+        "icons": {}
+    },
+    "description": "Capturing a move event",
+    "doc": "http://doc.gameclosure.com/example/events-input-move/",
+    "resources": {},
+    "targets": {},
+    "groups": {},
+    "sdkVersion": "dev-0.1.0",
+    "icon": false,
+    "splash": {}
+}

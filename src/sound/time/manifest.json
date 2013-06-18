@@ -1,0 +1,29 @@
+{
+	"appID": "00000000000000000000000000000000",
+	"shortName": "soundTime",
+	"title": "Sound: Time",
+    "group": "sound",
+	"studio": {
+		"name": "GameClosure demo",
+		"domain": "gameclosure.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"icons": {}
+	},
+	"ios": {
+		"icons": {}
+	},
+	"description": "Getting and setting the position of a sound",
+	"doc": "http://doc.gameclosure.com/example/sound-mute/",
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"sdkVersion": "release-0.1.13",
+	"icon": false,
+	"splash": {}
+}

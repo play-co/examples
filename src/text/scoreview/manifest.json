@@ -1,0 +1,29 @@
+{
+	"appID": "00000000000000000000000000000000",
+	"shortName": "scoreview",
+	"title": "ScoreView: High-Performance Text Rendering With Images",
+	"group": "graphics",
+	"studio": {
+		"name": "GameClosure demo",
+		"domain": "gameclosure.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"icons": {}
+	},
+	"ios": {
+		"icons": {}
+	},
+	"description": "ScoreView example.",
+	"doc": "http://doc.gameclosure.com/example/text-scoreview/",
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"sdkVersion": "release-0.1.20",
+	"icon": false,
+	"splash": {}
+}

@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+PROJECT_ROOT=$(cd -P $(dirname "$0") && cd .. && pwd)
+TEMPLATE="$PROJECT_ROOT/build/template.html"
+SRC_ROOT="$PROJECT_ROOT/src"
+OUT_ROOT="$PROJECT_ROOT/html"
+
+## check for docco and dependencies
+##
+if ! which npm > /dev/null; then
+		echo "Error: Docco requires npm to build code examples."
+		exit 1
+fi
+if ! which docco > /dev/null; then
+		echo "Error: Requires docco to build code examples."
+		echo "Try: sudo npm install -g docco"
+		exit 1
+fi
+if ! which pygmentize > /dev/null; then
+		echo "Error: Docco requires python-pygments to build code examples."
+		echo "Try: sudo easy_install Pygments"
+		exit 1
+fi
+
+function convert_source {
+		while read path; do
+				#remove api_root and beginning slash
+				local rel_path="${path##$SRC_ROOT}"
+				rel_path="${rel_path#/}"
+				#create out url path
+				local out_path=$(basename $(echo "$rel_path" | tr '/' '-') '.js')
+				out_path=$(echo "${out_path%-src-Application}" | tr '[:upper:]' '[:lower:]')
+				
+				#generate annotated html with docco
+				if docco --template "$TEMPLATE" --output "$OUT_ROOT/$out_path" "$SRC_ROOT/$rel_path" &> /dev/null; then
+						#rename Application.html to index.html, all classes should be in single file
+						mv "$OUT_ROOT/$out_path/Application.html" "$OUT_ROOT/$out_path/index.html"
+						echo "  * $OUT_ROOT/$out_path"
+				else
+						echo "Error: Docco conversion from file '$SRC_ROOT/$rel_path'"
+						exit 1
+				fi
+
+				#copy over the assets in a project's doc directory
+				local example_path="$SRC_ROOT/$rel_path"
+				example_path="${example_path%/src/Application.js}"
+				if [ -d "$example_path/doc" ]; then
+						cp -a "$example_path/doc" "$OUT_ROOT/$out_path/"
+				fi
+
+				cp ./build/init.js "$OUT_ROOT/$out_path"
+				cp -a "$example_path/src" "$OUT_ROOT/$out_path/"
+				cp -a "$example_path/resources" "$OUT_ROOT/$out_path"
+				cd "$OUT_ROOT/$out_path"
+				ln -s "$PROJECT_ROOT/sdk" ./sdk
+				node ~/src/devkit-priv/src/basil.js compile "gc.API" init --no-compress --eval --appendImport --out runtime.js
+				cd "$PROJECT_ROOT"
+
+
+				#remove the css file docco copies over, only reference the one in the template
+				if [ -f "$OUT_ROOT/$out_path/docco.css" ]; then
+						rm "$OUT_ROOT/$out_path/docco.css"
+				fi
+		done < <(find "$SRC_ROOT" -type f -name '*.js' | grep -v ".*/sdk/.*" | grep -v ".*/build/.*")
+}
+
+## clean slate
+##
+if [ -d "$OUT_ROOT" ]; then
+		rm -rf "$OUT_ROOT"
+fi
+mkdir -p "$OUT_ROOT"
+
+cp "$PROJECT_ROOT/build/index.html" "$OUT_ROOT" #simple redirect file
+
+## and away we go ...
+##
+echo "Building docs ..."
+convert_source

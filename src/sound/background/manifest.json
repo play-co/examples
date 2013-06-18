@@ -1,0 +1,29 @@
+{
+    "appID": "00000000000000000000000000000000",
+    "shortName": "soundBackground",
+    "title": "Sound: Background",
+    "group": "sound",
+    "studio": {
+        "name": "GameClosure demo",
+        "domain": "gameclosure.com",
+        "stagingDomain": "staging.example.com"
+    },
+    "supportedOrientations": [
+        "portrait"
+    ],
+    "android": {
+        "versionCode": 1,
+        "icons": {}
+    },
+    "ios": {
+        "icons": {}
+    },
+    "description": "Playing a background sound",
+    "doc": "http://doc.gameclosure.com/example/sound-background/",
+    "resources": {},
+    "targets": {},
+    "groups": {},
+    "sdkVersion": "dev-0.1.0",
+    "icon": false,
+    "splash": {}
+}

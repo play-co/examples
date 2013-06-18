@@ -1,0 +1,30 @@
+{
+	"appID": "00000000000000000000000000000000",
+	"shortName": "textTextViewsClock",
+	"title": "TextView: Clock",
+	"group": "graphics",
+	"studio": {
+		"name": "GameClosure demo",
+		"domain": "gameclosure.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"shortname": "textviews-clock",
+	"android": {
+		"versionCode": 1,
+		"icons": {}
+	},
+	"ios": {
+		"icons": {}
+	},
+	"description": "Create a working clock with Text Views!",
+	"doc": "http://doc.gameclosure.com/example/text-textviews-clock/",
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"sdkVersion": "release-0.1.21",
+	"icon": false,
+	"splash": {}
+}

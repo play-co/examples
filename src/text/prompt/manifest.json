@@ -1,0 +1,36 @@
+{
+    "appID": "73221e0165e345a890b28201bbd54900",
+    "shortName": "prompt",
+    "title": "Prompt demo",
+    "group": "ui",
+    "studio": {
+        "name": "GameClosure demo",
+        "domain": "gameclosure.com",
+        "stagingDomain": "staging.example.com"
+    },
+    "supportedOrientations": [
+        "portrait"
+    ],
+    "description": "Showing a prompt dialog",
+    "doc": "http://doc.gameclosure.com/example/text-prompt/",
+    "resources": {},
+    "targets": {},
+    "groups": {},
+    "android": {
+        "apsalarKey": "",
+        "apsalarSecret": "",
+        "versionCode": 1,
+        "icons": {}
+    },
+    "ios": {
+        "apsalarKey": "",
+        "apsalarSecret": "",
+        "bundleID": "example.bundle",
+        "appleID": "1234567",
+        "version": "1.0.0",
+        "icons": {}
+    },
+    "sdkVersion": "dev-0.1.0",
+    "icon": false,
+    "splash": {}
+}

@@ -1,0 +1,29 @@
+{
+    "appID": "00000000000000000000000000000000",
+    "shortName": "eventsInputDrag",
+    "title": "Events: Drag Input",
+    "group": "events",
+    "studio": {
+        "name": "GameClosure demo",
+        "domain": "gameclosure.com",
+        "stagingDomain": "staging.example.com"
+    },
+    "supportedOrientations": [
+        "portrait"
+    ],
+    "android": {
+        "versionCode": 1,
+        "icons": {}
+    },
+    "ios": {
+        "icons": {}
+    },
+    "description": "Capturing a drag event",
+    "doc": "http://doc.gameclosure.com/example/events-input-drag/",
+    "resources": {},
+    "targets": {},
+    "groups": {},
+    "sdkVersion": "dev-0.1.0",
+    "icon": false,
+    "splash": {}
+}

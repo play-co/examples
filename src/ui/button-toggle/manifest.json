@@ -1,0 +1,38 @@
+{
+    "appID": "0d297473dbe34d23b08037bd46702e35",
+    "shortName": "uiButtonToggle",
+    "title": "Button: Toggle demo",
+    "description": "Toggling a button",
+    "group": "ui",
+    "doc": "http://doc.gameclosure.com/example/ui-button-toggle/",
+    "studio": {
+        "name": "Example Studio Name",
+        "domain": "studio.example.com",
+        "stagingDomain": "staging.example.com"
+    },
+    "supportedOrientations": [
+        "portrait"
+    ],
+    "resources": {},
+    "targets": {},
+    "groups": {},
+    "android": {
+        "apsalarKey": "",
+        "apsalarSecret": "",
+        "entryPoint": "runtimeNative.launchClient",
+        "versionCode": 1,
+        "icons": {}
+    },
+    "ios": {
+        "apsalarKey": "",
+        "apsalarSecret": "",
+        "entryPoint": "runtimeNative.launchClient",
+        "bundleID": "example.bundle",
+        "appleID": "1234567",
+        "version": "1.0.0",
+        "icons": {}
+    },
+    "sdkVersion": "dev-0.1.0",
+    "icon": false,
+    "splash": {}
+}

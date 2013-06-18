@@ -1,0 +1,36 @@
+{
+    "appID": "00000000000000000000000000000000",
+    "shortName": "uiGridSpan",
+    "title": "Grid: col span, row span",
+    "group": "ui",
+    "studio": {
+        "name": "GameClosure demo",
+        "domain": "gameclosure.com",
+        "stagingDomain": "staging.example.com"
+    },
+    "supportedOrientations": [
+        "portrait"
+    ],
+    "description": "A GridView span.",
+    "doc": "http://doc.gameclosure.com/example/ui-grid-span/",
+    "resources": {},
+    "targets": {},
+    "groups": {},
+    "android": {
+        "apsalarKey": "",
+        "apsalarSecret": "",
+        "versionCode": 1,
+        "icons": {}
+    },
+    "ios": {
+        "apsalarKey": "",
+        "apsalarSecret": "",
+        "bundleID": "example.bundle",
+        "appleID": "1234567",
+        "version": "1.0.0",
+        "icons": {}
+    },
+    "sdkVersion": "dev-0.1.0",
+    "icon": false,
+    "splash": {}
+}

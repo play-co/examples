@@ -1,0 +1,30 @@
+{
+    "appID": "00000000000000000000000000000000",
+    "shortName": "textTextViewsRandom",
+    "title": "TextView: Many, Random Views",
+    "group": "graphics",
+    "studio": {
+        "name": "GameClosure demo",
+        "domain": "gameclosure.com",
+        "stagingDomain": "staging.example.com"
+    },
+    "supportedOrientations": [
+        "portrait"
+    ],
+    "shortname": "random-textviews",
+    "android": {
+        "versionCode": 1,
+        "icons": {}
+    },
+    "ios": {
+        "icons": {}
+    },
+    "description": "Create a bunch of TextViews with random style properties.",
+    "doc": "http://doc.gameclosure.com/example/text-textviews-random/",
+    "resources": {},
+    "targets": {},
+    "groups": {},
+    "sdkVersion": "dev-0.1.0",
+    "icon": false,
+    "splash": {}
+}

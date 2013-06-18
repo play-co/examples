@@ -1,0 +1,29 @@
+{
+    "appID": "00000000000000000000000000000000",
+    "shortName": "basicsScaleScreen",
+    "title": "Layout: Scale Region",
+    "group": "views",
+    "studio": {
+        "name": "Example Studio Name",
+        "domain": "studio.example.com",
+        "stagingDomain": "staging.example.com"
+    },
+    "supportedOrientations": [
+        "portrait"
+    ],
+    "android": {
+        "versionCode": 1,
+        "icons": {}
+    },
+    "ios": {
+        "icons": {}
+    },
+    "description": "Scale to fit.",
+    "doc": "http://doc.gameclosure.com/example/basics-scalescreen/",
+    "resources": {},
+    "targets": {},
+    "groups": {},
+    "sdkVersion": "dev-0.1.0",
+    "icon": false,
+    "splash": {}
+}

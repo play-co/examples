@@ -1,0 +1,36 @@
+{
+    "appID": "31a9c7220e634527a81bed83889e6e9a",
+    "shortName": "rotateViews",
+    "title": "Views: Rotation",
+    "group": "views",
+    "studio": {
+        "name": "Example Studio Name",
+        "domain": "studio.example.com",
+        "stagingDomain": "staging.example.com"
+    },
+    "supportedOrientations": [
+        "portrait"
+    ],
+    "description": "Rotating a view around a point",
+    "doc": "http://doc.gameclosure.com/example/views-rotate/",
+    "resources": {},
+    "targets": {},
+    "groups": {},
+    "android": {
+        "apsalarKey": "",
+        "apsalarSecret": "",
+        "versionCode": 1,
+        "icons": {}
+    },
+    "ios": {
+        "apsalarKey": "",
+        "apsalarSecret": "",
+        "bundleID": "example.bundle",
+        "appleID": "1234567",
+        "version": "1.0.0",
+        "icons": {}
+    },
+    "sdkVersion": "dev-0.1.0",
+    "icon": false,
+    "splash": {}
+}

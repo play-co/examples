@@ -1,0 +1,29 @@
+{
+	"appID": "00000000000000000000000000000000",
+	"shortName": "uiLayout",
+	"title": "UI: Layout System",
+	"studio": {
+		"name": "Example Studio Name",
+		"domain": "studio.example.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"description": "Using the layout system",
+	"group": "ui",
+	"doc": "http://doc.gameclosure.com/example/ui-layout/",
+	"icon": false,
+	"splash": {},
+	"android": {
+		"versionCode": 1,
+		"icons": {}
+	},
+	"ios": {
+		"bundleID": "example.bundle",
+		"appleID": "12345678",
+		"version": "1.0.0",
+		"icons": {}
+	},
+	"sdkVersion": "release-0.1.21"
+}

@@ -1,0 +1,25 @@
+{
+	"appID": "00000000000000000000000000000000",
+	"shortName": "particles",
+	"title": "Animation: Particles",
+    "group": "graphics",
+	"studio": {
+		"name": "GameClosure demo",
+		"domain": "gameclosure.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"description": "Smoke and flames with ParticleEngine",
+	"doc": "http://doc.gameclosure.com/example/animation-particles/",
+	"icon": false,
+	"splash": {},
+	"android": {
+		"icons": {}
+	},
+	"ios": {
+		"icons": {}
+	},
+	"sdkVersion": "release-0.1.12"
+}

@@ -1,0 +1,40 @@
+{
+	"appID": "00000000000000000000000000000000",
+	"shortName": "viewPooling",
+	"title": "Views: Pooling",
+    "group": "views",
+	"studio": {
+		"name": "GameClosure demo",
+		"domain": "gameclosure.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"preload": {
+		"autoHide": true,
+		"img": "preload/splash.png",
+		"iphone": {
+			"launch": "preload/iphone/Default.png",
+			"launchRetina": "preload/iphone/Default@2x.png",
+			"launchRetina4": "preload/iphone/Default-568h@2x.png"
+		},
+		"ipad": {
+			"portrait": "preload/ipad/Default-Portrait~ipad.png",
+			"portraitRetina": "preload/ipad/Default-Portrait@2x~ipad.png",
+			"landscape": "preload/ipad/Default-Landscape~ipad.png",
+			"landscapeRetina": "preload/ipad/Default-Landscape@2x~ipad.png"
+		}
+	},
+	"android": {
+		"versionCode": 1,
+	},
+	"ios": {
+	},
+	"description": "Using ViewPools",
+	"doc": "http://doc.gameclosure.com/example/view-pooling/",
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"sdkVersion": "release-0.1.2"
+}

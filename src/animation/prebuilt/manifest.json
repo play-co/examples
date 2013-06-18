@@ -1,0 +1,29 @@
+{
+	"appID": "00000000000000000000000000000000",
+	"shortName": "prebuilt",
+	"title": "Animation: Prebuilt Spritesheets",
+    "group": "graphics",
+	"studio": {
+		"name": "GameClosure demo",
+		"domain": "gameclosure.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"landscape"
+	],
+	"description": "Using assets on a prebuilt spritesheet",
+	"doc": "http://doc.gameclosure.com/example/animation-prebuilt/",
+	"icon": false,
+	"splash": {},
+	"android": {
+		"versionCode": 1,
+		"icons": {}
+	},
+	"ios": {
+		"bundleID": "example.bundle",
+		"appleID": "12345678",
+		"version": "1.0.0",
+		"icons": {}
+	},
+	"sdkVersion": "release-0.1.15"
+}

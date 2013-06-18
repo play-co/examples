@@ -1,0 +1,36 @@
+{
+    "appID": "00000000000000000000000000000000",
+    "shortName": "uiButton",
+    "title": "Button: Basic demo",
+    "description": "Enabling and disabling a button",
+    "group": "ui",
+    "doc": "http://doc.gameclosure.com/example/ui-button/",
+    "studio": {
+        "name": "Example Studio Name",
+        "domain": "studio.example.com",
+        "stagingDomain": "staging.example.com"
+    },
+    "supportedOrientations": [
+        "portrait"
+    ],
+    "resources": {},
+    "targets": {},
+    "groups": {},
+    "android": {
+        "apsalarKey": "",
+        "apsalarSecret": "",
+        "versionCode": 1,
+        "icons": {}
+    },
+    "ios": {
+        "apsalarKey": "",
+        "apsalarSecret": "",
+        "bundleID": "example.bundle",
+        "appleID": "1234567",
+        "version": "1.0.0",
+        "icons": {}
+    },
+    "sdkVersion": "dev-0.1.0",
+    "icon": false,
+    "splash": {}
+}

@@ -1,0 +1,29 @@
+{
+	"appID": "00000000000000000000000000000000",
+	"shortName": "textFontsTTF",
+	"title": "Fonts: TTF Fonts",
+	"group": "graphics",
+	"studio": {
+		"name": "GameClosure demo",
+		"domain": "gameclosure.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"icons": {}
+	},
+	"ios": {
+		"icons": {}
+	},
+	"description": "TTF fonts",
+	"doc": "http://doc.gameclosure.com/example/text-fonts-ttf/",
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"sdkVersion": "release-0.1.11",
+	"icon": false,
+	"splash": {}
+}

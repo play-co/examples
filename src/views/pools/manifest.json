@@ -2,7 +2,7 @@
 	"appID": "00000000000000000000000000000000",
 	"shortName": "viewPooling",
 	"title": "Views: Pooling",
-    "group": "views",
+	"group": "views",
 	"studio": {
 		"name": "GameClosure demo",
 		"domain": "gameclosure.com",
@@ -27,14 +27,13 @@
 		}
 	},
 	"android": {
-		"versionCode": 1,
+		"versionCode": 1
 	},
-	"ios": {
-	},
+	"ios": {},
 	"description": "Using ViewPools",
 	"doc": "http://doc.gameclosure.com/example/view-pooling/",
 	"resources": {},
 	"targets": {},
 	"groups": {},
-	"sdkVersion": "release-0.1.2"
+	"sdkVersion": "release-0.1.22"
 }

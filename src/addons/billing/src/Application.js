@@ -16,7 +16,7 @@ exports = Class(GC.Application, function () {
 			layout: "box",
 			buffer: false,
 			autoFontSize: true,
-			height: 80,
+			height: 40,
 			text: "Coin Count = <coin count>",
 			color: "#ff88ff",
 			outlineColor: "#000000",
@@ -31,12 +31,12 @@ exports = Class(GC.Application, function () {
 			superview: this.view,
 			layout: "box",
 			width: 200,
-			height: 60,
+			height: 30,
 			centerX: true,
 			images: {
-				up: "resources/images/blue1.png",
-				down: "resources/images/blue2.png",
-				disabled: "resources/images/white1.png"
+				up: "resources/images/white1.png",
+				down: "resources/images/white2.png",
+				disabled: "resources/images/blue2.png"
 			},
 			scaleMethod: "9slice",
 			sourceSlices: {
@@ -75,7 +75,7 @@ exports = Class(GC.Application, function () {
 			superview: this.view,
 			layout: "box",
 			width: 200,
-			height: 60,
+			height: 30,
 			centerX: true,
 			images: {
 				up: "resources/images/blue1.png",
@@ -105,11 +105,11 @@ exports = Class(GC.Application, function () {
 			}
 		});
 
-		this._buyFail = new ButtonView({
+		this._buyCancel = new ButtonView({
 			superview: this.view,
 			layout: "box",
 			width: 200,
-			height: 60,
+			height: 30,
 			centerX: true,
 			images: {
 				up: "resources/images/blue1.png",
@@ -127,10 +127,78 @@ exports = Class(GC.Application, function () {
 			},
 			on: {
 				up: bind(this, function() {
-					billing.purchase("fiveCoins", "service");
+					billing.purchase("fiveCoins", "cancel");
 				})
 			},
-			title: "Buy 5 Coins (fail)",
+			title: "Buy 5 Coins (cancel)",
+			text: {
+				color: "#000044",
+				size: 16,
+				autoFontSize: false,
+				autoSize: false
+			}
+		});
+
+		this._buyRefund = new ButtonView({
+			superview: this.view,
+			layout: "box",
+			width: 200,
+			height: 30,
+			centerX: true,
+			images: {
+				up: "resources/images/blue1.png",
+				down: "resources/images/blue2.png",
+				disabled: "resources/images/white1.png"
+			},
+			scaleMethod: "9slice",
+			sourceSlices: {
+				horizontal: {left: 80, center: 116, right: 80},
+				vertical: {top: 10, middle: 80, bottom: 10}
+			},
+			destSlices: {
+				horizontal: {left: 40, right: 40},
+				vertical: {top: 4, bottom: 4}
+			},
+			on: {
+				up: bind(this, function() {
+					billing.purchase("fiveCoins", "refund");
+				})
+			},
+			title: "Refunded item test",
+			text: {
+				color: "#000044",
+				size: 16,
+				autoFontSize: false,
+				autoSize: false
+			}
+		});
+
+		this._buyUnavail = new ButtonView({
+			superview: this.view,
+			layout: "box",
+			width: 200,
+			height: 30,
+			centerX: true,
+			images: {
+				up: "resources/images/blue1.png",
+				down: "resources/images/blue2.png",
+				disabled: "resources/images/white1.png"
+			},
+			scaleMethod: "9slice",
+			sourceSlices: {
+				horizontal: {left: 80, center: 116, right: 80},
+				vertical: {top: 10, middle: 80, bottom: 10}
+			},
+			destSlices: {
+				horizontal: {left: 40, right: 40},
+				vertical: {top: 4, bottom: 4}
+			},
+			on: {
+				up: bind(this, function() {
+					billing.purchase("fiveCoins", "unavailable");
+				})
+			},
+			title: "Unavailable item test",
 			text: {
 				color: "#000044",
 				size: 16,
@@ -207,24 +275,27 @@ exports = Class(GC.Application, function () {
 
 		updateCoinCount(coinCount);
 
-		var purchaseHandlers = {
-			"fiveCoins": bind(this, function() {
-				updateCoinCount.call(this, coinCount + 5);
+		function handleCoinPurchase() {
+			updateCoinCount.call(this, coinCount + 5);
 
-				new TextDialogView({
-					superview: this.view,
-					title: 'Award Modal',
-					text: 'You purchased 5 coins!  Well done!',
-					modal: true,
-					buttons: [
-						{
-							title: 'Ok',
-							width: 160,
-							style: 'GREEN'
-						}
-					]
-				}).show();
-			})
+			new TextDialogView({
+				superview: this.view,
+				title: 'Award Modal',
+				text: 'You purchased 5 coins!  Well done!',
+				modal: true,
+				buttons: [
+			{
+				title: 'Ok',
+				width: 160,
+				style: 'GREEN'
+			}
+			]
+			}).show();
+		}
+
+		var purchaseHandlers = {
+			"fiveCoins": bind(this, handleCoinPurchase),
+			"android.test.purchased": bind(this, handleCoinPurchase)
 		};
 
 		function handlePurchase(item) {

@@ -2,56 +2,38 @@ import ui.TextView as TextView;
 import plugins.geoloc.install;
 
 exports = Class(GC.Application, function () {
-	this.updatePosition = function() {
-		logger.log("Demo: Requesting position...");
-		this.statusView.setText("REQUESTING...");
-
-		// Run the exported addon function
-		navigator.geolocation.getCurrentPosition(bind(this, function(pos) {
-			logger.log("Demo: Success!");
-			var lat = pos.coords.latitude;
-			var lng = pos.coords.longitude;
-
-			this.latView.setText(lat);
-			this.lngView.setText(lng);
-			this.statusView.setText("SUCCESS");
-		}), bind(this, function(err) {
-			logger.log("Demo: Error!");
-			this.latView.setText("-");
-			this.lngView.setText("-");
-			this.statusView.setText("FAIL: ", err.code);
-		}));
-	}
-
 	this.initUI = function () {
 		this.view.style.layout = "linear";
 		this.view.style.direction = "vertical";
 
-		this.latView = new TextView({
+		this._button1 = new ButtonView({
 			superview: this.view,
-			layout: "box",
-			text: "(latitude)",
-			color: "white",
-			flex: 1
+			width: 200,
+			height: 60,
+			x: device.width / 2 - 100,
+			y: 150,
+			images: {
+				up: "resources/images/blue1.png",
+				down: "resources/images/blue2.png",
+				disabled: "resources/images/white1.png"
+			},
+			scaleMethod: "9slice",
+			sourceSlices: {
+				horizontal: {left: 80, center: 116, right: 80},
+				vertical: {top: 10, middle: 80, bottom: 10}
+			},
+			destSlices: {
+				horizontal: {left: 40, right: 40},
+				vertical: {top: 4, bottom: 4}
+			},
+			title: "Button",
+			text: {
+				color: "#000044",
+				size: 16,
+				autoFontSize: false,
+				autoSize: false
+			}
 		});
-
-		this.lngView = new TextView({
-			superview: this.view,
-			layout: "box",
-			text: "(longitude)",
-			color: "white",
-			flex: 1
-		});
-
-		this.statusView = new TextView({
-			superview: this.view,
-			layout: "box",
-			text: "WAITING FOR FIRST UPDATE TIMER TICK...",
-			color: "white",
-			flex: 1
-		});
-
-		setInterval(bind(this, "updatePosition"), 5000)
 	};
 	
 	this.launchUI = function () {};

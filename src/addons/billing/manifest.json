@@ -2,7 +2,6 @@
 	"appID": "4aa2105926194c5cb652d7c825fe4d98",
 	"shortName": "Billing",
 	"title": "Addons: Billing",
-    "group": "addons",
 	"studio": {
 		"name": "GameClosure demo",
 		"domain": "gameclosure.com",
@@ -11,6 +10,7 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"group": "addons",
 	"addons": [
 		"billing"
 	],

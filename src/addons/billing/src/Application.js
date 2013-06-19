@@ -25,6 +25,8 @@ exports = Class(GC.Application, function () {
 			backgroundColor: "#000044"
 		});
 
+		var disabled = false;
+
 		this._disable = new ButtonView({
 			superview: this.view,
 			layout: "box",
@@ -47,9 +49,20 @@ exports = Class(GC.Application, function () {
 			},
 			on: {
 				up: bind(this, function() {
+					disabled = !disabled;
+					var newTitle = disabled ? "Purchases: Disabled" : "Purchases: Enabled";
+					this._disable.setTitle(newTitle);
+
+					if (disabled) {
+						billing.onPurchase = null;
+						billing.onFailure = null;
+					} else {
+						billing.onPurchase = bind(this, handlePurchase);
+						billing.onFailure = bind(this, handleFailure);
+					}
 				})
 			},
-			title: "Purchases: <Enabled/Disabled>",
+			title: "Purchases: Enabled",
 			text: {
 				color: "#000044",
 				size: 16,
@@ -80,7 +93,7 @@ exports = Class(GC.Application, function () {
 			},
 			on: {
 				up: bind(this, function() {
-					billing.purchase("TESTPURCHASE:fiveCoins");
+					billing.purchase("fiveCoins", "simulate");
 				})
 			},
 			title: "Buy 5 Coins (good)",
@@ -114,7 +127,7 @@ exports = Class(GC.Application, function () {
 			},
 			on: {
 				up: bind(this, function() {
-					billing.purchase("FAILPURCHASE:fiveCoins");
+					billing.purchase("fiveCoins", "service");
 				})
 			},
 			title: "Buy 5 Coins (fail)",
@@ -174,29 +187,29 @@ exports = Class(GC.Application, function () {
 			this._avail.setText("Market: Initially -Not- Available");
 		}
 
-		billing.on('MarketAvailable', function (available) {
+		billing.on('MarketAvailable', bind(this, function (available) {
 			if (available) {
 				this._avail.setText("Market: Available");
 			} else {
 				this._avail.setText("Market: -Not- Available");
 			}
-		});
+		}));
 
 		// Initialize the coin counter
-		var coinCount = localStorage.getItem("coinCount") || 0;
+		var coinCount = localStorage.getItem("coinCount") | 0;
+		var _coin = this._coin;
 
 		function updateCoinCount(count) {
 			coinCount = count;
 			localStorage.setItem("coinCount", coinCount);
-
-			this._coin.setText(count);
+			_coin.setText(count);
 		}
 
 		updateCoinCount(coinCount);
 
 		var purchaseHandlers = {
 			"fiveCoins": bind(this, function() {
-				updateCoinCount(coinCount + 5);
+				updateCoinCount.call(this, coinCount + 5);
 
 				new TextDialogView({
 					superview: this.view,
@@ -227,8 +240,8 @@ exports = Class(GC.Application, function () {
 			this._fail.setText('Failure Reason: "' + reason + '", Item: "' + item + '"');
 		}
 
-		billing.onPurchase = handlePurchase;
-		billing.onFailure = handleFailure;
+		billing.onPurchase = bind(this, handlePurchase);
+		billing.onFailure = bind(this, handleFailure);
 	};
 
 	this.launchUI = function () {};

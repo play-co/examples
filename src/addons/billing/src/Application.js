@@ -1,14 +1,20 @@
+//# Using the billing plugin for in-app purchases <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/addons/billing/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
+//This example shows how to use the billing plugin for in-app purchases.
+
 import ui.TextView as TextView;
 import ui.widget.ButtonView as ButtonView;
 import plugins.billing.install;
 import device;
 import menus.views.TextDialogView as TextDialogView;
 
+//## Class: Application
+//Create an Application.
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
 		this.view.style.layout = "linear";
 		this.view.style.direction = "vertical";
 
+		// Present coin counter
 		this._coinCount = 0;
 
 		this._coin = new TextView({
@@ -25,6 +31,7 @@ exports = Class(GC.Application, function () {
 			backgroundColor: "#000044"
 		});
 
+		// Present disable market toggle button
 		var disabled = false;
 
 		this._disable = new ButtonView({
@@ -54,9 +61,11 @@ exports = Class(GC.Application, function () {
 					this._disable.setTitle(newTitle);
 
 					if (disabled) {
+						// Disable onPurchase callback
 						billing.onPurchase = null;
 						billing.onFailure = null;
 					} else {
+						// Re-enable onPurchase callback
 						billing.onPurchase = bind(this, handlePurchase);
 						billing.onFailure = bind(this, handleFailure);
 					}
@@ -71,6 +80,7 @@ exports = Class(GC.Application, function () {
 			}
 		});
 
+		// Buy simulation button
 		this._buy = new ButtonView({
 			superview: this.view,
 			layout: "box",
@@ -105,6 +115,7 @@ exports = Class(GC.Application, function () {
 			}
 		});
 
+		// Buy cancel button
 		this._buyCancel = new ButtonView({
 			superview: this.view,
 			layout: "box",
@@ -139,6 +150,7 @@ exports = Class(GC.Application, function () {
 			}
 		});
 
+		// Refund button
 		this._buyRefund = new ButtonView({
 			superview: this.view,
 			layout: "box",
@@ -173,6 +185,7 @@ exports = Class(GC.Application, function () {
 			}
 		});
 
+		// Unavailable item button
 		this._buyUnavail = new ButtonView({
 			superview: this.view,
 			layout: "box",
@@ -207,6 +220,7 @@ exports = Class(GC.Application, function () {
 			}
 		});
 
+		// onPurchase result text, tap to clear it
 		this._purchase = new TextView({
 			superview: this.view,
 			height: device.height/10,
@@ -221,6 +235,11 @@ exports = Class(GC.Application, function () {
 			backgroundColor: "#004400"
 		});
 
+		this._purchase.on('InputSelect', bind(this, function (evt, pt) {
+			this._purchase.setText("");
+		}));
+
+		// onFailure result text, tap to clear it
 		this._fail = new TextView({
 			superview: this.view,
 			height: device.height/10,
@@ -235,6 +254,11 @@ exports = Class(GC.Application, function () {
 			backgroundColor: "#440000"
 		});
 
+		this._fail.on('InputSelect', bind(this, function (evt, pt) {
+			this._fail.setText("");
+		}));
+
+		// isMarketAvailable status
 		this._avail = new TextView({
 			superview: this.view,
 			height: device.height/10,
@@ -248,14 +272,6 @@ exports = Class(GC.Application, function () {
 			horizontalPadding: 20,
 			backgroundColor: "#444400"
 		});
-
-		this._purchase.on('InputSelect', bind(this, function (evt, pt) {
-			this._purchase.setText("");
-		}));
-
-		this._fail.on('InputSelect', bind(this, function (evt, pt) {
-			this._fail.setText("");
-		}));
 
 		if (billing.isMarketAvailable) {
 			this._avail.setText("Market: Initially Available");
@@ -283,6 +299,7 @@ exports = Class(GC.Application, function () {
 
 		updateCoinCount(coinCount);
 
+		// Handle successful coin purchase
 		function handleCoinPurchase() {
 			updateCoinCount.call(this, coinCount + 5);
 
@@ -292,20 +309,22 @@ exports = Class(GC.Application, function () {
 				text: 'You purchased 5 coins!  Well done!',
 				modal: true,
 				buttons: [
-			{
-				title: 'Ok',
-				width: 160,
-				style: 'GREEN'
-			}
-			]
+					{
+						title: 'Ok',
+						width: 160,
+						style: 'GREEN'
+					}
+				]
 			}).show();
 		}
 
+		// Handle the android test purchase string also
 		var purchaseHandlers = {
 			"fiveCoins": bind(this, handleCoinPurchase),
 			"android.test.purchased": bind(this, handleCoinPurchase)
 		};
 
+		// onPurchase handler
 		function handlePurchase(item) {
 			var handler = purchaseHandlers[item];
 			if (typeof handler === "function") {
@@ -315,6 +334,7 @@ exports = Class(GC.Application, function () {
 			this._purchase.setText('Purchase Result: "' + item + '"');
 		};
 
+		// onFailure handler
 		function handleFailure(reason, item) {
 			this._fail.setText('Failure Reason: "' + reason + '", Item: "' + item + '"');
 		}
@@ -325,4 +345,7 @@ exports = Class(GC.Application, function () {
 
 	this.launchUI = function () {};
 });
+
+//The output should look like this screenshot:
+//<img src="./doc/screenshot.png" alt="a book screenshot" class="screenshot">
 

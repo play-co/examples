@@ -10,6 +10,40 @@ import menus.views.TextDialogView as TextDialogView;
 //## Class: Application
 //Create an Application.
 exports = Class(GC.Application, function () {
+	this.makeButton = function(title, onUp) {
+		return new ButtonView({
+			superview: this.view,
+			layout: "box",
+			width: device.width/2,
+			height: device.height/10,
+			centerX: true,
+			images: {
+				up: "resources/images/white1.png",
+				down: "resources/images/white2.png",
+				disabled: "resources/images/blue2.png"
+			},
+			scaleMethod: "9slice",
+			sourceSlices: {
+				horizontal: {left: 80, center: 116, right: 80},
+				vertical: {top: 10, middle: 80, bottom: 10}
+			},
+			destSlices: {
+				horizontal: {left: 40, right: 40},
+				vertical: {top: 4, bottom: 4}
+			},
+			on: {
+				up: bind(this, onUp)
+			},
+			title: title,
+			text: {
+				color: "#000044",
+				size: 16,
+				autoFontSize: false,
+				autoSize: false
+			}
+		});
+	}
+
 	this.initUI = function () {
 		this.view.style.layout = "linear";
 		this.view.style.direction = "vertical";
@@ -34,190 +68,40 @@ exports = Class(GC.Application, function () {
 		// Present disable market toggle button
 		var disabled = false;
 
-		this._disable = new ButtonView({
-			superview: this.view,
-			layout: "box",
-			width: device.width/2,
-			height: device.height/10,
-			centerX: true,
-			images: {
-				up: "resources/images/white1.png",
-				down: "resources/images/white2.png",
-				disabled: "resources/images/blue2.png"
-			},
-			scaleMethod: "9slice",
-			sourceSlices: {
-				horizontal: {left: 80, center: 116, right: 80},
-				vertical: {top: 10, middle: 80, bottom: 10}
-			},
-			destSlices: {
-				horizontal: {left: 40, right: 40},
-				vertical: {top: 4, bottom: 4}
-			},
-			on: {
-				up: bind(this, function() {
-					disabled = !disabled;
-					var newTitle = disabled ? "Purchases: Disabled" : "Purchases: Enabled";
-					this._disable.setTitle(newTitle);
+		this._disable = this.makeButton("Purchases: Enabled", function() {
+			disabled = !disabled;
+			var newTitle = disabled ? "Purchases: Disabled" : "Purchases: Enabled";
+			this._disable.setTitle(newTitle);
 
-					if (disabled) {
-						// Disable onPurchase callback
-						billing.onPurchase = null;
-						billing.onFailure = null;
-					} else {
-						// Re-enable onPurchase callback
-						billing.onPurchase = bind(this, handlePurchase);
-						billing.onFailure = bind(this, handleFailure);
-					}
-				})
-			},
-			title: "Purchases: Enabled",
-			text: {
-				color: "#000044",
-				size: 16,
-				autoFontSize: false,
-				autoSize: false
+			if (disabled) {
+				// Disable onPurchase callback
+				billing.onPurchase = null;
+				billing.onFailure = null;
+			} else {
+				// Re-enable onPurchase callback
+				billing.onPurchase = bind(this, handlePurchase);
+				billing.onFailure = bind(this, handleFailure);
 			}
 		});
 
 		// Buy simulation button
-		this._buy = new ButtonView({
-			superview: this.view,
-			layout: "box",
-			width: device.width/2,
-			height: device.height/10,
-			centerX: true,
-			images: {
-				up: "resources/images/blue1.png",
-				down: "resources/images/blue2.png",
-				disabled: "resources/images/white1.png"
-			},
-			scaleMethod: "9slice",
-			sourceSlices: {
-				horizontal: {left: 80, center: 116, right: 80},
-				vertical: {top: 10, middle: 80, bottom: 10}
-			},
-			destSlices: {
-				horizontal: {left: 40, right: 40},
-				vertical: {top: 4, bottom: 4}
-			},
-			on: {
-				up: bind(this, function() {
-					billing.purchase("fiveCoins", "simulate");
-				})
-			},
-			title: "Buy 5 Coins (good)",
-			text: {
-				color: "#000044",
-				size: 16,
-				autoFontSize: false,
-				autoSize: false
-			}
+		this._buy = this.makeButton("Buy 5 Coins (good)", function() {
+			billing.purchase("fiveCoins", "simulate");
 		});
 
 		// Buy cancel button
-		this._buyCancel = new ButtonView({
-			superview: this.view,
-			layout: "box",
-			width: device.width/2,
-			height: device.height/10,
-			centerX: true,
-			images: {
-				up: "resources/images/blue1.png",
-				down: "resources/images/blue2.png",
-				disabled: "resources/images/white1.png"
-			},
-			scaleMethod: "9slice",
-			sourceSlices: {
-				horizontal: {left: 80, center: 116, right: 80},
-				vertical: {top: 10, middle: 80, bottom: 10}
-			},
-			destSlices: {
-				horizontal: {left: 40, right: 40},
-				vertical: {top: 4, bottom: 4}
-			},
-			on: {
-				up: bind(this, function() {
-					billing.purchase("fiveCoins", "cancel");
-				})
-			},
-			title: "Buy 5 Coins (cancel)",
-			text: {
-				color: "#000044",
-				size: 16,
-				autoFontSize: false,
-				autoSize: false
-			}
+		this._buyCancel = this.makeButton("Buy 5 Coins (cancel)", function() {
+			billing.purchase("fiveCoins", "cancel");
 		});
 
 		// Refund button
-		this._buyRefund = new ButtonView({
-			superview: this.view,
-			layout: "box",
-			width: device.width/2,
-			height: device.height/10,
-			centerX: true,
-			images: {
-				up: "resources/images/blue1.png",
-				down: "resources/images/blue2.png",
-				disabled: "resources/images/white1.png"
-			},
-			scaleMethod: "9slice",
-			sourceSlices: {
-				horizontal: {left: 80, center: 116, right: 80},
-				vertical: {top: 10, middle: 80, bottom: 10}
-			},
-			destSlices: {
-				horizontal: {left: 40, right: 40},
-				vertical: {top: 4, bottom: 4}
-			},
-			on: {
-				up: bind(this, function() {
-					billing.purchase("fiveCoins", "refund");
-				})
-			},
-			title: "Refunded item test",
-			text: {
-				color: "#000044",
-				size: 16,
-				autoFontSize: false,
-				autoSize: false
-			}
+		this._buyRefund = this.makeButton("Refunded item test", function() {
+			billing.purchase("fiveCoins", "refund");
 		});
 
 		// Unavailable item button
-		this._buyUnavail = new ButtonView({
-			superview: this.view,
-			layout: "box",
-			width: device.width/2,
-			height: device.height/10,
-			centerX: true,
-			images: {
-				up: "resources/images/blue1.png",
-				down: "resources/images/blue2.png",
-				disabled: "resources/images/white1.png"
-			},
-			scaleMethod: "9slice",
-			sourceSlices: {
-				horizontal: {left: 80, center: 116, right: 80},
-				vertical: {top: 10, middle: 80, bottom: 10}
-			},
-			destSlices: {
-				horizontal: {left: 40, right: 40},
-				vertical: {top: 4, bottom: 4}
-			},
-			on: {
-				up: bind(this, function() {
-					billing.purchase("fiveCoins", "unavailable");
-				})
-			},
-			title: "Unavailable item test",
-			text: {
-				color: "#000044",
-				size: 16,
-				autoFontSize: false,
-				autoSize: false
-			}
+		this._buyUnavail = this.makeButton("Unavailable item test", function() {
+			billing.purchase("fiveCoins", "unavailable");
 		});
 
 		// onPurchase result text, tap to clear it

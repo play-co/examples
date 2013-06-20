@@ -2,7 +2,7 @@
 	"appID": "00000000000000000000000000000000",
 	"shortName": "soundTime",
 	"title": "Sound: Time",
-    "group": "sound",
+	"group": "sound",
 	"studio": {
 		"name": "GameClosure demo",
 		"domain": "gameclosure.com",
@@ -23,7 +23,7 @@
 	"resources": {},
 	"targets": {},
 	"groups": {},
-	"sdkVersion": "release-0.1.13",
+	"sdkVersion": "release-0.1.23",
 	"icon": false,
 	"splash": {}
 }

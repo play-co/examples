@@ -5,7 +5,6 @@ import ui.TextView as TextView;
 import ui.widget.ButtonView as ButtonView;
 import plugins.billing.install;
 import device;
-import menus.views.TextDialogView as TextDialogView;
 
 //## Class: Application
 //Create an Application.
@@ -186,20 +185,6 @@ exports = Class(GC.Application, function () {
 		// Handle successful coin purchase
 		function handleCoinPurchase() {
 			updateCoinCount.call(this, coinCount + 5);
-
-			new TextDialogView({
-				superview: this.view,
-				title: 'Award Modal',
-				text: 'You purchased 5 coins!  Well done!',
-				modal: true,
-				buttons: [
-					{
-						title: 'Ok',
-						width: 160,
-						style: 'GREEN'
-					}
-				]
-			}).show();
 		}
 
 		// Handle the android test purchase string also

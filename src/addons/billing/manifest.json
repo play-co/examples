@@ -1,0 +1,32 @@
+{
+	"appID": "4aa2105926194c5cb652d7c825fe4d98",
+	"shortName": "Billing",
+	"title": "Addons: Billing",
+	"studio": {
+		"name": "GameClosure demo",
+		"domain": "gameclosure.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"group": "addons",
+	"addons": [
+		"billing"
+	],
+	"description": "Example of using Billing addon",
+	"doc": "http://doc.gameclosure.com/example/addons-billing/",
+	"icon": false,
+	"splash": {},
+	"android": {
+		"versionCode": 1,
+		"icons": {}
+	},
+	"ios": {
+		"bundleID": "example.bundle",
+		"appleID": "12345678",
+		"version": "1.0.0",
+		"icons": {}
+	},
+	"sdkVersion": "release-0.1.22"
+}

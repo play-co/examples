@@ -14,9 +14,9 @@ exports = Class(GC.Application, function () {
 		this._coin = new TextView({
 			superview: this.view,
 			layout: "box",
+			height: device.height/10,
 			buffer: false,
 			autoFontSize: true,
-			height: 40,
 			text: "Coin Count = <coin count>",
 			color: "#ff88ff",
 			outlineColor: "#000000",
@@ -30,8 +30,8 @@ exports = Class(GC.Application, function () {
 		this._disable = new ButtonView({
 			superview: this.view,
 			layout: "box",
-			width: 200,
-			height: 30,
+			width: device.width/2,
+			height: device.height/10,
 			centerX: true,
 			images: {
 				up: "resources/images/white1.png",
@@ -74,8 +74,8 @@ exports = Class(GC.Application, function () {
 		this._buy = new ButtonView({
 			superview: this.view,
 			layout: "box",
-			width: 200,
-			height: 30,
+			width: device.width/2,
+			height: device.height/10,
 			centerX: true,
 			images: {
 				up: "resources/images/blue1.png",
@@ -108,8 +108,8 @@ exports = Class(GC.Application, function () {
 		this._buyCancel = new ButtonView({
 			superview: this.view,
 			layout: "box",
-			width: 200,
-			height: 30,
+			width: device.width/2,
+			height: device.height/10,
 			centerX: true,
 			images: {
 				up: "resources/images/blue1.png",
@@ -142,8 +142,8 @@ exports = Class(GC.Application, function () {
 		this._buyRefund = new ButtonView({
 			superview: this.view,
 			layout: "box",
-			width: 200,
-			height: 30,
+			width: device.width/2,
+			height: device.height/10,
 			centerX: true,
 			images: {
 				up: "resources/images/blue1.png",
@@ -176,8 +176,8 @@ exports = Class(GC.Application, function () {
 		this._buyUnavail = new ButtonView({
 			superview: this.view,
 			layout: "box",
-			width: 200,
-			height: 30,
+			width: device.width/2,
+			height: device.height/10,
 			centerX: true,
 			images: {
 				up: "resources/images/blue1.png",
@@ -209,10 +209,10 @@ exports = Class(GC.Application, function () {
 
 		this._purchase = new TextView({
 			superview: this.view,
+			height: device.height/10,
 			layout: "box",
 			buffer: false,
 			autoFontSize: true,
-			height: 80,
 			text: "<last onPurchase result>",
 			color: "#88ffff",
 			outlineColor: "#000000",
@@ -223,10 +223,10 @@ exports = Class(GC.Application, function () {
 
 		this._fail = new TextView({
 			superview: this.view,
+			height: device.height/10,
 			layout: "box",
 			buffer: false,
 			autoFontSize: true,
-			height: 80,
 			text: "<last onFailure result>",
 			color: "#ffff88",
 			outlineColor: "#000000",
@@ -237,10 +237,10 @@ exports = Class(GC.Application, function () {
 
 		this._avail = new TextView({
 			superview: this.view,
+			height: device.height/10,
 			layout: "box",
 			buffer: false,
 			autoFontSize: true,
-			height: 80,
 			text: "<isMarketAvailable>",
 			color: "#ff8888",
 			outlineColor: "#000000",
@@ -248,6 +248,14 @@ exports = Class(GC.Application, function () {
 			horizontalPadding: 20,
 			backgroundColor: "#444400"
 		});
+
+		this._purchase.on('InputSelect', bind(this, function (evt, pt) {
+			this._purchase.setText("");
+		}));
+
+		this._fail.on('InputSelect', bind(this, function (evt, pt) {
+			this._fail.setText("");
+		}));
 
 		if (billing.isMarketAvailable) {
 			this._avail.setText("Market: Initially Available");

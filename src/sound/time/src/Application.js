@@ -177,10 +177,6 @@ var SoundButton = Class(ButtonView, function(supr) {
 				vertical: {top: 4, bottom: 4}
 			},
 			text: {
-				color: "#000044",
-				size: 16,
-				autoFontSize: false,
-				autoSize: false,
 				wrap: true
 			}
 		})]);

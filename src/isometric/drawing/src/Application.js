@@ -13,11 +13,11 @@ var tileSettings = [
 		{group: 2, images: [], width: 150, height: 120},
 		{cursorYes: 'resources/images/cursorYes.png', cursorNo: 'resources/images/cursorNo.png'}
 	];
-// Set the ground tiles, the numbers represent the binairy values of a 2x2 grid:
+// Set the ground tiles, the numbers represent the binary values of a 2x2 grid:
 for (var i = 0; i < 16; i++) {
 	tileSettings[0].images.push({index: i, url: 'resources/images/demoGround' + i + '.png'});
 }
-// Set the road tiles, the numbers represent the binairy values of a 3x3 grid:
+// Set the road tiles, the numbers represent the binary values of a 3x3 grid:
 var roadIndex = [16, 18, 24, 26, 48, 50, 56, 58, 144, 146, 152, 154, 176, 178, 184, 186]
 for (var i = 0; i < roadIndex.length; i++) {
 	tileSettings[1].images.push({index: roadIndex[i], url: 'resources/images/demoRoad' + roadIndex[i] + '.png'});
@@ -56,7 +56,7 @@ var editorSettings = {
 			horizontal: [24, 56, 48], // These are the bits set for a horizontal line 24 and 48 are the caps, 56 is the center
 			vertical: [18, 146, 144] // These are the bits set for a vertical line 18 and 144 are the caps, 146 is the center
 		},
-		// The line updater is used to merge line caps, this function is called when the inital drawing is done...
+		// The line updater is used to merge line caps, this function is called when the initial drawing is done...
 		updater: lineUpdater
 	}
 };

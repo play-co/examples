@@ -37,24 +37,24 @@ var BoxModel = Class(SpawnerModel, function (supr) {
 });
 
 var itemSettings = {
-		item: {
-			width: 48,
-			height: 48,
-			offsetX: -24,
-			offsetY: -48,
-			images: [
-				'resources/images/dir0.png',
-				'resources/images/dir1.png',
-				'resources/images/dir2.png',
-				'resources/images/dir3.png',
-				'resources/images/dir4.png',
-				'resources/images/dir5.png', //'resources/images/dir5.png',
-				'resources/images/dir6.png',
-				'resources/images/dir7.png',
-				'resources/images/dir8.png'
-			]
-		},
-	};
+	item: {
+		width: 48,
+		height: 48,
+		offsetX: -24,
+		offsetY: -48,
+		images: [
+			'resources/images/dir0.png',
+			'resources/images/dir1.png',
+			'resources/images/dir2.png',
+			'resources/images/dir3.png',
+			'resources/images/dir4.png',
+			'resources/images/dir5.png',
+			'resources/images/dir6.png',
+			'resources/images/dir7.png',
+			'resources/images/dir8.png'
+		]
+	}
+};
 
 var ImageModel = Class(PathWalkerModel, function (supr) {
 	this.init = function (opts) {

@@ -19,7 +19,7 @@ exports = Class(GC.Application, function () {
 		// Subscribe to gesture events: Pinch, Rotate, Drag, Swipe
 		gview.on('Pinch', bind(this, 'pinch'));
 		gview.on('Rotate', bind(this, 'rotate'));
-		gview.on('Drag', bind(this, 'drag'));
+		gview.on('DragSingle', bind(this, 'drag'));
 		gview.on('Swipe', bind(this, 'swipe'));
 		// This view scales, rotates, and moves around
 		// in response to Pinch, Rotate, and Drag events
@@ -56,10 +56,10 @@ exports = Class(GC.Application, function () {
 		this.demoView.style.r = r;
 	};
 
-	this.drag = function(startEvent, endEvent, delta) {
-		// reposition demoView in response to Drag event
-		this.demoView.style.x += delta.x;
-		this.demoView.style.y += delta.y;
+	this.drag = function(x, y) {
+		// reposition demoView in response to DragSingle event
+		this.demoView.style.x += x;
+		this.demoView.style.y += y;
 	};
 
 	this.swipe = function (dir) {

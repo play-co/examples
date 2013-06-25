@@ -1,4 +1,6 @@
+import device;
 import ui.View as View;
+import ui.TextView as TextView;
 import ui.GestureView as GestureView;
 
 exports = Class(GC.Application, function () {
@@ -22,6 +24,16 @@ exports = Class(GC.Application, function () {
 			blockEvents: true,
 			backgroundColor: 'red'
 		});
+		this.logView = new TextView({
+			superview: this.view,
+			layout: 'box',
+			bottom: 0,
+			height: 50,
+			canHandleEvents: false,
+			blockEvents: true,
+			backgroundColor: 'green',
+			text: device.isSimulator ? "test on device for multitouch" : "pinch, rotate, drag, swipe"
+		});
 	};
 
 	this.pinch = function (d) {
@@ -33,12 +45,11 @@ exports = Class(GC.Application, function () {
 	};
 
 	this.drag = function(startEvent, endEvent, delta) {
-		logger.log('drag', delta.x, delta.y);
 		this.demoView.style.x += delta.x;
 		this.demoView.style.y += delta.y;
 	};
 
 	this.swipe = function (dir) {
-		logger.log('swipe', dir);
+		this.logView.setText(dir);
 	};
 });

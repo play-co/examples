@@ -42,7 +42,7 @@ exports = Class(GC.Application, function () {
 			canHandleEvents: false,
 			blockEvents: true,
 			backgroundColor: 'green',
-			text: device.isSimulator ? "test on device for multitouch" : "pinch, rotate, drag, swipe"
+			text: device.isSimulator ? 'test on device for multitouch' : 'pinch, rotate, drag, swipe'
 		});
 	};
 

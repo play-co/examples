@@ -67,10 +67,10 @@ exports = Class(GC.Application, function () {
 		this.demoView.style.r = r + this._currentRotation;
 	};
 
-	this.drag = function(x, y) {
+	this.drag = function(dx, dy) {
 		// reposition demoView in response to DragSingle event
-		this.demoView.style.x += x;
-		this.demoView.style.y += y;
+		this.demoView.style.x += dx;
+		this.demoView.style.y += dy;
 	};
 
 	this.saveState = function() {

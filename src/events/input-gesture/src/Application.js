@@ -50,8 +50,8 @@ exports = Class(GC.Application, function () {
 		this._currentRotation = 0;
 	};
 	// update logView in response to Swipe event
-	this.swipe = function (dir) {
-		this.logView.setText(dir);
+	this.swipe = function (dir, numberOfFingers) {
+		this.logView.setText(dir + " " + numberOfFingers);
 	};
 	// scale demoView in response to Pinch event
 	this.pinch = function (d) {

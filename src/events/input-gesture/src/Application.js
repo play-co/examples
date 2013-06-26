@@ -22,7 +22,7 @@ exports = Class(GC.Application, function () {
 		gview.on('DragSingle', bind(this, 'drag'));
 		gview.on('FingerUp', bind(this, 'saveState'));
 		// This view scales, rotates, and moves around
-		// in response to Swipe, Pinch, Rotate, and DragSingle events
+		// in response to Pinch, Rotate, and DragSingle events
 		this.demoView = new TextView({
 			superview: this.view,
 			layout: 'box',

@@ -1,61 +1,36 @@
 import ui.TextView as TextView;
+import ui.DragView as DragView;
 import device;
 import animate;
 
 exports = Class(GC.Application, function () {
 	this.makeRotor = function(x, y, r, dr, bgColor) {
-		var textview = new TextView({
+		var dragview = new DragView({
 			superview: this.view,
-			text: "DRAG ME",
-			layout: "box", // It's a box
-			color: "white",
-			backgroundColor: bgColor, // Make edges clearly visible
+			layout: 'box',
 			width: device.width/3, // Scale with screen
 			height: device.height/3,
-			x: x, // Position box to center initially
+			backgroundColor: bgColor, // Make edges clearly visible
+			x: x,
 			y: y,
-			r: r, // Some rotation (in radians) to add a little twist
-			centerAnchor: true // Center rotation anchor
+			r: r,
+			centerAnchor: true
 		});
-
-		textview.on("InputStart", bind(textview, function (evt) {
-			this.startDrag({
-				inputStartEvt: evt,
-				radius: 10 
-			});
-		}));
-
-		// Note: 'this' is automatically bound for you to the view..
-
-		textview.on("DragStart", function (dragEvt) {
-			// You can just subtract this.style.width/2 and this.style.height/2
-			// if you want to drag by the center of the object.  But this is
-			// way cooler!
-
-			this.dragOffset = {
-				x: dragEvt.srcPt.x - this.style.x,
-				y: dragEvt.srcPt.y - this.style.y
-			};
-		});
-
-		textview.on("Drag", function (startEvt, dragEvt, delta) {
-			this.style.x = dragEvt.srcPt.x - this.dragOffset.x;
-			this.style.y = dragEvt.srcPt.y - this.dragOffset.y;
-		});
-
-		textview.on("DragStop", function (startEvt, dragEvt) {
-			this.style.x = dragEvt.srcPt.x - this.dragOffset.x;
-			this.style.y = dragEvt.srcPt.y - this.dragOffset.y;
+		var textview = new TextView({
+			superview: dragview,
+			layout: 'box', // It's a box
+			text: 'DRAG ME',
+			color: 'white'
 		});
 
 		// Fancy: It rotates too! (Why not?)
-		textview.rotate = function() {
-			animate(textview).now({
+		dragview.rotate = function() {
+			animate(dragview).now({
 				dr: dr
 			}, 1000, animate.linear).then(bind(this, 'rotate'));
 		};
 
-		textview.rotate();
+		dragview.rotate();
 	}
 
 	this.initUI = function () {

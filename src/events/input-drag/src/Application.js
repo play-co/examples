@@ -1,26 +1,22 @@
-import ui.TextView as TextView;
-import ui.DragView as DragView;
-import device;
 import animate;
+import device;
+import ui.TextView as TextView;
 
 exports = Class(GC.Application, function () {
 	this.makeRotor = function(x, y, r, dr, bgColor) {
-		var dragview = new DragView({
+		var dragview = new TextView({
 			superview: this.view,
 			layout: 'box',
 			width: device.width/3, // Scale with screen
 			height: device.height/3,
 			backgroundColor: bgColor, // Make edges clearly visible
+			text: 'DRAG ME',
+			color: 'white',
 			x: x,
 			y: y,
 			r: r,
-			centerAnchor: true
-		});
-		var textview = new TextView({
-			superview: dragview,
-			layout: 'box', // It's a box
-			text: 'DRAG ME',
-			color: 'white'
+			centerAnchor: true,
+			dragRadius: 10
 		});
 
 		// Fancy: It rotates too! (Why not?)

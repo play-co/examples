@@ -51,6 +51,7 @@ exports = Class(GC.Application, function () {
 			//Use the dataSource:
 			dataSource: this._filmData,
 			selectable: "multi",
+			selections: [ "RoboCop", "Godzilla", "Brazil" ],
 			maxSelections: 10,
 			scrollX: false,
 			getCell: bind(this, "getCell")

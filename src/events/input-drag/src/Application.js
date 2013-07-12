@@ -1,10 +1,11 @@
 import animate;
 import device;
 import ui.TextView as TextView;
+import event.input.drag as drag;
 
 exports = Class(GC.Application, function () {
 	this.makeRotor = function(x, y, r, dr, bgColor) {
-		var dragview = new TextView({
+		var dragview = drag.makeDraggable(new TextView({
 			superview: this.view,
 			layout: 'box',
 			width: device.width/3, // Scale with screen
@@ -15,9 +16,8 @@ exports = Class(GC.Application, function () {
 			x: x,
 			y: y,
 			r: r,
-			centerAnchor: true,
-			dragRadius: 10
-		});
+			centerAnchor: true
+		}));
 
 		// Fancy: It rotates too! (Why not?)
 		dragview.rotate = function() {

@@ -32,10 +32,13 @@ exports.load = function () {
 			var category_path = path.join(examples_root, category);
 			//get project list in each category
 			fs.readdir(category_path, function (err, cat_projects) {
-				for (var i = 0, len = cat_projects.length; i < len; i++) {
-					// If path is a "normal" directory,
-					if (cat_projects[i].substring(0, 1) != '.') {
-						project_paths.push(path.join(category_path, cat_projects[i]));
+				// If the category was not empty,
+				if (cat_projects && cat_projects.length > 0) {
+					for (var i = 0, len = cat_projects.length; i < len; i++) {
+						// If path is a "normal" directory,
+						if (cat_projects[i].substring(0, 1) != '.') {
+							project_paths.push(path.join(category_path, cat_projects[i]));
+						}
 					}
 				}
 				iter();

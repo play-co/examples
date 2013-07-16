@@ -1,0 +1,36 @@
+{
+	"appID": "00000000000000000000000000000000",
+	"shortName": "input",
+	"title": "Text Input",
+	"studio": {
+		"name": "GameClosure demo",
+		"domain": "gameclosure.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"group": "ui",
+	"description": "Getting text input",
+	"doc": "http://doc.gameclosure.com/example/text-input/",
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"android": {
+		"apsalarKey": "",
+		"apsalarSecret": "",
+		"versionCode": 1,
+		"icons": {}
+	},
+	"ios": {
+		"apsalarKey": "",
+		"apsalarSecret": "",
+		"bundleID": "example.bundle",
+		"appleID": "1234567",
+		"version": "1.0.0",
+		"icons": {}
+	},
+	"sdkVersion": "release-0.1.28",
+	"icon": false,
+	"splash": {}
+}

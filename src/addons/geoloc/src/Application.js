@@ -11,14 +11,17 @@ exports = Class(GC.Application, function () {
 			logger.log("Demo: Success!");
 			var lat = pos.coords.latitude;
 			var lng = pos.coords.longitude;
+			var acc = pos.coords.accuracy;
 
 			this.latView.setText(lat);
 			this.lngView.setText(lng);
+			this.accView.setText(acc);
 			this.statusView.setText("SUCCESS");
 		}), bind(this, function(err) {
 			logger.log("Demo: Error!");
 			this.latView.setText("-");
 			this.lngView.setText("-");
+			this.accView.setText("-");
 			this.statusView.setText("FAIL: ", err.code);
 		}));
 	}
@@ -39,6 +42,14 @@ exports = Class(GC.Application, function () {
 			superview: this.view,
 			layout: "box",
 			text: "(longitude)",
+			color: "white",
+			flex: 1
+		});
+
+		this.accView = new TextView({
+			superview: this.view,
+			layout: "box",
+			text: "(accuracy)",
 			color: "white",
 			flex: 1
 		});

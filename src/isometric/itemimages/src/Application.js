@@ -8,9 +8,6 @@ import isometric.models.item.SpawnerModel as SpawnerModel;
 
 import menus.views.components.ButtonView as ButtonView;
 
-var BOUNDS_WIDTH = 576;
-var BOUNDS_HEIGHT = 1024;
-
 // Create group 1 with 16 images with a width of 150 and a height of 120
 // and a box with a width of 150 and a height of 200, the box will be aligned on the bottom.
 var tileSettings = [
@@ -103,9 +100,11 @@ var editorSettings = {
 };
 
 exports = Class(GC.Application, function () {
-	this.initUI = function () {
-		this.scaleUI();
+	this._settings = {
+		scaleUI: true
+	};
 
+	this.initUI = function () {
 		this._isometric = new Isometric({
 			superview: this,
 			gridSettings: gridSettings,
@@ -125,19 +124,6 @@ exports = Class(GC.Application, function () {
 		map.drawLineVertical(1, 0, 7, 8, 3, tileSet.vertical);
 
 		this._isometric.refreshMap();
-	};
-	
-	this.scaleUI = function () {
-		if (device.height > device.width) {
-			this.baseWidth = BOUNDS_WIDTH;
-			this.baseHeight = device.height * (BOUNDS_WIDTH / device.width);
-			this.scale = device.width / this.baseWidth;
-		} else {
-			this.baseWidth = BOUNDS_HEIGHT;
-			this.baseHeight = device.height * (BOUNDS_HEIGHT / device.width);
-			this.scale = device.height / this.baseHeight;
-		}
-		this.view.style.scale = this.scale;
 	};
 
 	this.tick = function (dt) {

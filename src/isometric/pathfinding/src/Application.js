@@ -77,9 +77,11 @@ var DemoModel = Class(DynamicModel, function (supr) {
 });
 
 exports = Class(GC.Application, function () {
-	this.initUI = function () {
-		this.scaleUI();
+	this._settings = {
+		scaleUI: true
+	};
 
+	this.initUI = function () {
 		// Create an instance of Isometric, this class wraps the isometric models and views.
 		this._isometric = new Isometric({
 			superview: this,
@@ -131,19 +133,6 @@ exports = Class(GC.Application, function () {
 		this._index = 0;
 		this._isometric.setTool(false);
 		this._isometric.on('Ready', bind(this, 'onReady'));
-	};
-	
-	this.scaleUI = function () {
-		if (device.height > device.width) {
-			this.baseWidth = 576;
-			this.baseHeight = device.height * (576 / device.width);
-			this.scale = device.width / this.baseWidth;
-		} else {
-			this.baseWidth = 1024;
-			this.baseHeight = device.height * (1024 / device.width);
-			this.scale = device.height / this.baseHeight;
-		}
-		this.view.style.scale = this.scale;
 	};
 
 	this.tick = function (dt) {

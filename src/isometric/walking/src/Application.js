@@ -7,10 +7,10 @@ import isometric.models.item.SpawnerModel as SpawnerModel;
 // Create group 1 with 16 images with a width of 150 and a height of 120
 // and a box with a width of 150 and a height of 200, the box will be aligned on the bottom.
 var tileSettings = [
-		{ group: 1, images: [{index: 0, url: 'resources/images/demoGround0.png'}], width: 150, height: 120 },
-		{ group: 2, images: [{index: 0, url: 'resources/images/box0.png'}], width: 150, height: 188, z: [1, 0] },
-		{ group: 3, images: [], width: 150, height: 120 }
-	];
+	{ group: 1, images: [{index: 0, url: 'resources/images/demoGround0.png'}], width: 150, height: 120 },
+	{ group: 2, images: [{index: 0, url: 'resources/images/box0.png'}], width: 150, height: 188, z: [1, 0] },
+	{ group: 3, images: [], width: 150, height: 120 }
+];
 var roadIndex = [16, 18, 24, 26, 48, 50, 56, 58, 144, 146, 152, 154, 176, 178, 184, 186];
 for (var i = 0; i < roadIndex.length; i++) {
 	tileSettings[2].images.push({index: roadIndex[i], url: 'resources/images/demoRoad' + roadIndex[i] + '.png'});
@@ -18,28 +18,28 @@ for (var i = 0; i < roadIndex.length; i++) {
 
 // Create a two layers layer with tiles of 150x120:
 var gridSettings = {
-		tileWidth: 150,
-		tileHeight: 120,
-		layers: [{}, {dynamicViews: 30}]
-	};
+	tileWidth: 150,
+	tileHeight: 120,
+	layers: [{}, {dynamicViews: 30}]
+};
 
 // Settings to define different views:
 var itemSettings = {
-		item1: {
-			color: '#0000DD',
-			width: 30,
-			height: 60,
-			offsetX: -15,
-			offsetY: -60,
-		},
-		item2: {
-			color: '#000044',
-			width: 20,
-			height: 50,
-			offsetX: -10,
-			offsetY: -50,
-		}
-	};
+	item1: {
+		color: '#0000DD',
+		width: 30,
+		height: 60,
+		offsetX: -15,
+		offsetY: -60
+	},
+	item2: {
+		color: '#000044',
+		width: 20,
+		height: 50,
+		offsetX: -10,
+		offsetY: -50
+	}
+};
 
 var editorSettings = {
 	box: {
@@ -66,9 +66,11 @@ var editorSettings = {
 };
 
 exports = Class(GC.Application, function () {
-	this.initUI = function () {
-		this.scaleUI();
+	this._settings = {
+		scaleUI: true
+	};
 
+	this.initUI = function () {
 		// Create an instance of Isometric, this class wraps the isometric models and views.
 		this._isometric = new Isometric({
 			superview: this,
@@ -94,19 +96,6 @@ exports = Class(GC.Application, function () {
 		map.drawLineVertical(1, 2, 7, 5, 3, tileSet.vertical);
 
 		this._isometric.refreshMap();
-	};
-	
-	this.scaleUI = function () {
-		if (device.height > device.width) {
-			this.baseWidth = 576;
-			this.baseHeight = device.height * (576 / device.width);
-			this.scale = device.width / this.baseWidth;
-		} else {
-			this.baseWidth = 1024;
-			this.baseHeight = device.height * (1024 / device.width);
-			this.scale = device.height / this.baseHeight;
-		}
-		this.view.style.scale = this.scale;
 	};
 
 	this.tick = function (dt) {

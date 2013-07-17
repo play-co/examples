@@ -90,10 +90,9 @@ exports = Class(GC.Application, function () {
 			noReflow: true, // Don't use the reflow manager
 			showFPS: false,
 			resizeRootView: false,
+			scaleUI: true,
 			preload: ['resources/images']
 		});
-
-		this.scaleUI();
 
 		// Create an instance of Isometric, this class wraps the isometric models and views.
 		this._isometric = new Isometric({
@@ -163,19 +162,6 @@ exports = Class(GC.Application, function () {
 
 		// Put a "box" item on the grid:
 		this._isometric.putItem('box', 0, 9, {});
-	};
-	
-	this.scaleUI = function () {
-		if (device.height > device.width) {
-			this.baseWidth = 576;
-			this.baseHeight = device.height * (576 / device.width);
-			this.scale = device.width / this.baseWidth;
-		} else {
-			this.baseWidth = 1024;
-			this.baseHeight = device.height * (1024 / device.width);
-			this.scale = device.height / this.baseHeight;
-		}
-		this.view.style.scale = this.scale;
 	};
 
 	this.tick = function (dt) {

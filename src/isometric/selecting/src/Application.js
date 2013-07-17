@@ -8,19 +8,19 @@ import menus.views.components.ButtonView as ButtonView;
 
 // Create two groups: the plain background and the cursor tiles:
 var tileSettings = [
-		{group: 1, images: [{index: 0, url: 'resources/images/demoGround0.png'}], width: 150, height: 120},
-		{cursorYes: 'resources/images/cursorYes.png', cursorNo: 'resources/images/cursorNo.png'}
-	];
+	{group: 1, images: [{index: 0, url: 'resources/images/demoGround0.png'}], width: 150, height: 120},
+	{cursorYes: 'resources/images/cursorYes.png', cursorNo: 'resources/images/cursorNo.png'}
+];
 
 // Create a single layer with tiles of 150x120:
 var gridSettings = {tileWidth: 150, tileHeight: 120, layers: [{}]};
 
 // Create 3 different tools:
 var editorSettings = {
-		line: {type: 'line'},
-		area: {type: 'area'},
-		point: {type: 'item'}
-	};
+	line: {type: 'line'},
+	area: {type: 'area'},
+	point: {type: 'item'}
+};
 
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
@@ -33,10 +33,9 @@ exports = Class(GC.Application, function () {
 			noReflow: true, // Don't use the reflow manager
 			showFPS: false,
 			resizeRootView: false,
+			scaleUI: true,
 			preload: ['resources/images']
 		});
-
-		this.scaleUI();
 
 		// Create an instance of Isometric, this class wraps the isometric models and views.
 		this._isometric = new Isometric({
@@ -105,19 +104,6 @@ exports = Class(GC.Application, function () {
 		// The active tool:
 		this._index = 0;
 		this._isometric.setTool(false);
-	};
-	
-	this.scaleUI = function () {
-		if (device.height > device.width) {
-			this.baseWidth = 576;
-			this.baseHeight = device.height * (576 / device.width);
-			this.scale = device.width / this.baseWidth;
-		} else {
-			this.baseWidth = 1024;
-			this.baseHeight = device.height * (1024 / device.width);
-			this.scale = device.height / this.baseHeight;
-		}
-		this.view.style.scale = this.scale;
 	};
 
 	this.tick = function (dt) {

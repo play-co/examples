@@ -13,23 +13,23 @@ var gridSettings = {tileWidth: 150, tileHeight: 120, layers: [{}]};
 
 // Generate a map, 20 chains of rectangles with 50 rectangles each...
 var mapSettings = {
-		generatorSteps: [
-			{
-				type: 'rectangles',
-				repeat: 1000,
-				count: 50,
-				group: 1, // The group defined in the tile settings
-				accept: [
-					{
-						// Accept tiles 0..15 from group 1 on layer 0:
-						layer: 0,
-						group: 1,
-						tiles: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-					}
-				]
-			}
-		]
-	};
+	generatorSteps: [
+		{
+			type: 'rectangles',
+			repeat: 1000,
+			count: 50,
+			group: 1, // The group defined in the tile settings
+			accept: [
+				{
+					// Accept tiles 0..15 from group 1 on layer 0:
+					layer: 0,
+					group: 1,
+					tiles: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+				}
+			]
+		}
+	]
+};
 
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
@@ -42,10 +42,9 @@ exports = Class(GC.Application, function () {
 			noReflow: true, // Don't use the reflow manager
 			showFPS: false,
 			resizeRootView: false,
+			scaleUI: true,
 			preload: ['resources/images']
 		});
-
-		this.scaleUI();
 
 		// Create an instance of Isometric, this class wraps the isometric models and views.
 		this._isometric = new Isometric({
@@ -56,19 +55,6 @@ exports = Class(GC.Application, function () {
 		}).
 			generate().
 			show();
-	};
-	
-	this.scaleUI = function () {
-		if (device.height > device.width) {
-			this.baseWidth = 576;
-			this.baseHeight = device.height * (576 / device.width);
-			this.scale = device.width / this.baseWidth;
-		} else {
-			this.baseWidth = 1024;
-			this.baseHeight = device.height * (1024 / device.width);
-			this.scale = device.height / this.baseHeight;
-		}
-		this.view.style.scale = this.scale;
 	};
 
 	this.tick = function (dt) {

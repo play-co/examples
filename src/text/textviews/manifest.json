@@ -2,7 +2,7 @@
     "appID": "00000000000000000000000000000000",
     "shortName": "textTextViews",
     "title": "TextView: Text wrapping and alignment",
-    "group": "graphics",
+    "group": "text",
     "studio": {
         "name": "GameClosure demo",
         "domain": "gameclosure.com",

@@ -1,8 +1,7 @@
 {
 	"appID": "00000000000000000000000000000000",
-	"shortName": "scoreview",
-	"title": "ScoreView: High-Performance Text Rendering With Images",
-	"group": "text",
+	"shortName": "internationalization",
+	"title": "Internationalization: Languages",
 	"studio": {
 		"name": "GameClosure demo",
 		"domain": "gameclosure.com",
@@ -11,6 +10,7 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"group": "text",
 	"android": {
 		"versionCode": 1,
 		"icons": {}
@@ -18,12 +18,12 @@
 	"ios": {
 		"icons": {}
 	},
-	"description": "ScoreView example.",
-	"doc": "http://doc.gameclosure.com/example/text-scoreview/",
+	"description": "Internationalization example.",
+	"doc": "http://doc.gameclosure.com/example/text-internationalization/",
 	"resources": {},
 	"targets": {},
 	"groups": {},
-	"sdkVersion": "release-0.1.20",
+	"sdkVersion": "release-0.1.30",
 	"icon": false,
 	"splash": {}
 }

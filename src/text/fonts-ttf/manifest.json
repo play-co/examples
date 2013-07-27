@@ -2,7 +2,7 @@
 	"appID": "00000000000000000000000000000000",
 	"shortName": "textFontsTTF",
 	"title": "Fonts: TTF Fonts",
-	"group": "graphics",
+	"group": "text",
 	"studio": {
 		"name": "GameClosure demo",
 		"domain": "gameclosure.com",

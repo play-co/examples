@@ -2,7 +2,7 @@
     "appID": "00000000000000000000000000000000",
     "shortName": "textTextViewsRandom",
     "title": "TextView: Many, Random Views",
-    "group": "graphics",
+    "group": "text",
     "studio": {
         "name": "GameClosure demo",
         "domain": "gameclosure.com",

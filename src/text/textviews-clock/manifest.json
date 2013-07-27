@@ -2,7 +2,7 @@
 	"appID": "00000000000000000000000000000000",
 	"shortName": "textTextViewsClock",
 	"title": "TextView: Clock",
-	"group": "graphics",
+	"group": "text",
 	"studio": {
 		"name": "GameClosure demo",
 		"domain": "gameclosure.com",

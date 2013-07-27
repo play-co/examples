@@ -2,7 +2,7 @@
 	"appID": "00000000000000000000000000000000",
 	"shortName": "scoreview",
 	"title": "ScoreView: High-Performance Text Rendering With Images",
-	"group": "graphics",
+	"group": "text",
 	"studio": {
 		"name": "GameClosure demo",
 		"domain": "gameclosure.com",

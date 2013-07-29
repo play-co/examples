@@ -16,10 +16,10 @@ exports = Class(GC.Application, function () {
 		this.style.direction = 'vertical';
 		this.style.justifyContent = 'space-outside';
 
-		var isContain = true;
+		var isContain = false;
 		var isv = new ui.ImageScaleView({
 			superview: this,
-			scaleMethod: 'contain',
+			scaleMethod: 'cover',
 			image: 'resources/images/kitten.jpg',
 			layout: 'box',
 			layoutWidth: '80%',
@@ -38,12 +38,12 @@ exports = Class(GC.Application, function () {
 
 		var coverContain = new TextView({
 			superview: bottomView,
-			text: 'cover',
 			layout: 'box',
+			wrap: true,
 			flex: 1
 		});
 
-		coverContain.on('InputSelect', function() {
+		var updateCoverContain = function() {
 			isContain = !isContain;
 			var cur = isContain ? 'contain' : 'cover';
 			var next = isContain ? 'cover' : 'contain';
@@ -51,7 +51,8 @@ exports = Class(GC.Application, function () {
 				scaleMethod: cur
 			});
 			coverContain.setText('current: ' + cur + ', next: ' + next);
-		});
+		};
+		coverContain.on('InputSelect', updateCoverContain);
 
 		var valignments = ['top', 'middle', 'bottom'];
 		var valignIndex = 0;
@@ -62,19 +63,23 @@ exports = Class(GC.Application, function () {
 		};
 		var verticalAlign = new TextView({
 			superview: bottomView,
-			text: getVAlign(),
 			layout: 'box',
+			wrap: true,
 			flex: 1
 		});
 
-		verticalAlign.on('InputSelect', function() {
+		var updateVAlign = function() {
 			var cur = getVAlign();
 			var next = valignments[valignIndex];
 			isv.updateOpts({
 				verticalAlign: cur
 			});
 			verticalAlign.setText('current: ' + cur + ', next: ' + next);
-		});
+		};
+		verticalAlign.on('InputSelect', updateVAlign);
+
+		updateCoverContain();
+		updateVAlign();
 	};
 });
 

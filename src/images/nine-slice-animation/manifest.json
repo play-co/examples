@@ -1,29 +1,29 @@
 {
-    "appID": "00000000000000000000000000000000",
-    "shortName": "imagesNineSliceAnimation",
-    "title": "Images: 9 Slice Animation",
-    "group": "graphics",
-    "studio": {
-        "name": "GameClosure demo",
-        "domain": "gameclosure.com",
-        "stagingDomain": "staging.example.com"
-    },
-    "supportedOrientations": [
-        "portrait"
-    ],
-    "android": {
-        "versionCode": 1,
-        "icons": {}
-    },
-    "ios": {
-        "icons": {}
-    },
-    "description": "Using 9-Slice image scaling in an animation",
-    "doc": "http://doc.gameclosure.com/example/images-nine-slice-animation/",
-    "resources": {},
-    "targets": {},
-    "groups": {},
-    "sdkVersion": "dev-0.1.0",
-    "icon": false,
-    "splash": {}
+	"appID": "00000000000000000000000000000000",
+	"shortName": "imagesNineSliceAnimation",
+	"title": "ImageScaleView: 9 Slice Animation",
+	"group": "graphics",
+	"studio": {
+		"name": "GameClosure demo",
+		"domain": "gameclosure.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"android": {
+		"versionCode": 1,
+		"icons": {}
+	},
+	"ios": {
+		"icons": {}
+	},
+	"description": "Using 9-Slice image scaling in an animation",
+	"doc": "http://doc.gameclosure.com/example/images-nine-slice-animation/",
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"sdkVersion": "release-0.1.30",
+	"icon": false,
+	"splash": {}
 }

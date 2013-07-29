@@ -16,19 +16,18 @@ exports = Class(GC.Application, function () {
 		this.style.direction = 'vertical';
 		this.style.justifyContent = 'space-outside';
 
-		var isContain = false;
 		var isv = new ui.ImageScaleView({
 			superview: this,
 			scaleMethod: 'cover',
-			image: 'resources/images/kitten.jpg',
 			layout: 'box',
 			layoutWidth: '80%',
-			layoutHeight: '60%',
+			layoutHeight: '50%',
 			debug: true,
 			centerX: true
 		});
 
-		var bottomView = new View({
+		// first row of buttons: kitten switcher; cover/contain
+		var middleView = new View({
 			superview: this,
 			layout: 'linear',
 			direction: 'horizontal',
@@ -36,13 +35,33 @@ exports = Class(GC.Application, function () {
 			backgroundColor: 'red'
 		});
 
-		var coverContain = new TextView({
-			superview: bottomView,
+		// kitty image (tall/short)
+		var isTall = true;
+		var kittyImage = new TextView({
+			superview: middleView,
 			layout: 'box',
 			wrap: true,
 			flex: 1
 		});
+		var updateKittyImage = function() {
+			isTall = !isTall;
+			var cur = isTall ? 'tall' : 'short';
+			var next = isTall ? 'short' : 'tall';
+			isv.updateOpts({
+				image: 'resources/images/' + cur + '.jpg'
+			});
+			kittyImage.setText('current: ' + cur + ', next: ' + next);
+		};
+		kittyImage.on('InputSelect', updateKittyImage);
 
+		// cover/contain
+		var isContain = false;
+		var coverContain = new TextView({
+			superview: middleView,
+			layout: 'box',
+			wrap: true,
+			flex: 1
+		});
 		var updateCoverContain = function() {
 			isContain = !isContain;
 			var cur = isContain ? 'contain' : 'cover';
@@ -54,6 +73,40 @@ exports = Class(GC.Application, function () {
 		};
 		coverContain.on('InputSelect', updateCoverContain);
 
+		// second row of buttons: horizontal and vertical alignment
+		var bottomView = new View({
+			superview: this,
+			layout: 'linear',
+			direction: 'horizontal',
+			layoutHeight: '20%',
+			backgroundColor: 'red'
+		});
+
+		// horizontal alignment
+		var halignments = ['left', 'center', 'right'];
+		var halignIndex = 0;
+		var getHAlign = function() {
+			var newHA = halignments[halignIndex];
+			halignIndex = (halignIndex + 1) % 3;
+			return newHA;
+		};
+		var horizontalAlign = new TextView({
+			superview: bottomView,
+			layout: 'box',
+			wrap: true,
+			flex: 1
+		});
+		var updateHAlign = function() {
+			var cur = getHAlign();
+			var next = halignments[halignIndex];
+			isv.updateOpts({
+				horizontalAlign: cur
+			});
+			horizontalAlign.setText('current: ' + cur + ', next: ' + next);
+		};
+		horizontalAlign.on('InputSelect', updateHAlign);
+
+		// vertical alignment
 		var valignments = ['top', 'middle', 'bottom'];
 		var valignIndex = 0;
 		var getVAlign = function() {
@@ -67,7 +120,6 @@ exports = Class(GC.Application, function () {
 			wrap: true,
 			flex: 1
 		});
-
 		var updateVAlign = function() {
 			var cur = getVAlign();
 			var next = valignments[valignIndex];
@@ -78,7 +130,10 @@ exports = Class(GC.Application, function () {
 		};
 		verticalAlign.on('InputSelect', updateVAlign);
 
+		// update all properties
+		updateKittyImage();
 		updateCoverContain();
+		updateHAlign();
 		updateVAlign();
 	};
 });

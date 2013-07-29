@@ -45,10 +45,35 @@ exports = Class(GC.Application, function () {
 
 		coverContain.on('InputSelect', function() {
 			isContain = !isContain;
+			var cur = isContain ? 'contain' : 'cover';
+			var next = isContain ? 'cover' : 'contain';
 			isv.updateOpts({
-				scaleMethod: isContain ? 'contain' : 'cover'
+				scaleMethod: cur
 			});
-			coverContain.setText(isContain ? 'cover' : 'contain');
+			coverContain.setText('current: ' + cur + ', next: ' + next);
+		});
+
+		var valignments = ['top', 'middle', 'bottom'];
+		var valignIndex = 0;
+		var getVAlign = function() {
+			var newVA = valignments[valignIndex];
+			valignIndex = (valignIndex + 1) % 3;
+			return newVA;
+		};
+		var verticalAlign = new TextView({
+			superview: bottomView,
+			text: getVAlign(),
+			layout: 'box',
+			flex: 1
+		});
+
+		verticalAlign.on('InputSelect', function() {
+			var cur = getVAlign();
+			var next = valignments[valignIndex];
+			isv.updateOpts({
+				verticalAlign: cur
+			});
+			verticalAlign.setText('current: ' + cur + ', next: ' + next);
 		});
 	};
 });

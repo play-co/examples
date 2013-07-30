@@ -31,8 +31,8 @@ exports = Class(GC.Application, function () {
 			superview: this,
 			layout: 'linear',
 			direction: 'horizontal',
-			layoutHeight: '20%',
-			backgroundColor: 'red'
+			justifyContent: 'space-outside',
+			layoutHeight: '20%'
 		});
 
 		// kitty image (tall/short)
@@ -40,8 +40,9 @@ exports = Class(GC.Application, function () {
 		var kittyImage = new TextView({
 			superview: middleView,
 			layout: 'box',
-			wrap: true,
-			flex: 1
+			layoutWidth: '40%',
+			backgroundColor: 'red',
+			wrap: true
 		});
 		var updateKittyImage = function() {
 			isTall = !isTall;
@@ -59,8 +60,9 @@ exports = Class(GC.Application, function () {
 		var coverContain = new TextView({
 			superview: middleView,
 			layout: 'box',
-			wrap: true,
-			flex: 1
+			layoutWidth: '40%',
+			backgroundColor: 'red',
+			wrap: true
 		});
 		var updateCoverContain = function() {
 			isContain = !isContain;
@@ -78,8 +80,8 @@ exports = Class(GC.Application, function () {
 			superview: this,
 			layout: 'linear',
 			direction: 'horizontal',
-			layoutHeight: '20%',
-			backgroundColor: 'red'
+			justifyContent: 'space-outside',
+			layoutHeight: '20%'
 		});
 
 		// horizontal alignment
@@ -93,8 +95,9 @@ exports = Class(GC.Application, function () {
 		var horizontalAlign = new TextView({
 			superview: bottomView,
 			layout: 'box',
-			wrap: true,
-			flex: 1
+			layoutWidth: '40%',
+			backgroundColor: 'red',
+			wrap: true
 		});
 		var updateHAlign = function() {
 			var cur = getHAlign();
@@ -117,8 +120,9 @@ exports = Class(GC.Application, function () {
 		var verticalAlign = new TextView({
 			superview: bottomView,
 			layout: 'box',
-			wrap: true,
-			flex: 1
+			layoutWidth: '40%',
+			backgroundColor: 'red',
+			wrap: true
 		});
 		var updateVAlign = function() {
 			var cur = getVAlign();

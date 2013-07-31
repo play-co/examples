@@ -1,8 +1,7 @@
 {
 	"appID": "00000000000000000000000000000000",
-	"shortName": "imagesThreeslice",
-	"title": "ImageScaleView: 3 Slice",
-	"group": "graphics",
+	"shortName": "imagesCoverContain",
+	"title": "ImageScaleView: Cover/Contain",
 	"studio": {
 		"name": "GameClosure demo",
 		"domain": "gameclosure.com",
@@ -11,6 +10,7 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"group": "graphics",
 	"resources": {},
 	"targets": {},
 	"groups": {},
@@ -29,8 +29,8 @@
 		"icons": {}
 	},
 	"sdkVersion": "release-0.1.30",
-	"description": "Using 3-Slice image scaling",
-	"doc": "http://doc.gameclosure.com/example/images-three-slice/",
+	"description": "Using Cover/Contain image scaling",
+	"doc": "http://doc.gameclosure.com/example/images-cover-contain/",
 	"icon": false,
 	"splash": {}
 }

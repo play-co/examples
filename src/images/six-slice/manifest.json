@@ -1,8 +1,7 @@
 {
 	"appID": "00000000000000000000000000000000",
-	"shortName": "imagesThreeslice",
-	"title": "ImageScaleView: 3 Slice",
-	"group": "graphics",
+	"shortName": "imagesSixslice",
+	"title": "ImageScaleView: 6 Slice",
 	"studio": {
 		"name": "GameClosure demo",
 		"domain": "gameclosure.com",
@@ -11,6 +10,7 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"group": "graphics",
 	"resources": {},
 	"targets": {},
 	"groups": {},
@@ -28,9 +28,12 @@
 		"version": "1.0.0",
 		"icons": {}
 	},
+	"description": "Using 6-Slice image scaling",
+	"doc": "http://doc.gameclosure.com/example/images-six-slice/",
 	"sdkVersion": "release-0.1.30",
-	"description": "Using 3-Slice image scaling",
-	"doc": "http://doc.gameclosure.com/example/images-three-slice/",
 	"icon": false,
-	"splash": {}
+	"splash": {
+		"autoHide": true,
+		"universal": "resources/splash/universal.png"
+	}
 }

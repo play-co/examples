@@ -1,7 +1,6 @@
 //# Advanced Rendering: Rendering to a Buffer <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/advrendering/buffers/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
 //This example shows how to create a buffer, rendering to that buffer
 //and displaying the buffer on the screen.
-//Note: Buffers exceeding the size of 64k pixels will not work on HTC model phones.
 
 //Import device the get the screen size and a device dependent Canvas constructor.
 import device;

@@ -5,9 +5,12 @@ exports = Class(GC.Application, function () {
 	var posIndex = -1;
 	var toastIndex = -1;
 	var positions = [
-		'bottom',
+		'top',
 		'topright',
-		'bottomright'
+		'bottomright',
+		'bottom',
+		'bottomleft',
+		'topleft'
 	];
 	var toastWords = [
 		'something',
@@ -25,15 +28,17 @@ exports = Class(GC.Application, function () {
 		});
 		var toast = new Toast({
 			superview: this,
-			debug: true,
 			images: {
-				bottom: 'resources/images/big.png',
-				topright: 'resources/images/small.png',
-				bottomright: 'resources/images/small.png'
+				top: 'resources/images/top.png',
+				bottom: 'resources/images/bottom.png',
+				topright: 'resources/images/right.png',
+				bottomright: 'resources/images/right.png',
+				topleft: 'resources/images/left.png',
+				bottomleft: 'resources/images/left.png'
 			}
 		});
 		textview.on('InputSelect', function() {
-			posIndex = (posIndex + 1) % 3;
+			posIndex = (posIndex + 1) % 6;
 			toastIndex = (toastIndex + 1) % 4;
 			toast.pop(toastWords[toastIndex], positions[posIndex]);
 		});

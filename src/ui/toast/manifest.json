@@ -8,7 +8,7 @@
 		"stagingDomain": "staging.example.com"
 	},
 	"supportedOrientations": [
-		"landscape"
+		"portrait"
 	],
 	"description": "Using the toast widget",
 	"group": "ui",

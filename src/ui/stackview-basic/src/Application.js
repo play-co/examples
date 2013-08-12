@@ -20,8 +20,6 @@ exports = Class(GC.Application, function () {
 
 		//when added to a stackView, child views take the same dimensions.
 		var front = new TextView({
-			x: 0,
-			y: 0,
 			text: "Click to dismiss!\nThis is the front view.",
 			backgroundColor: "#00F", //blue,
 			color: "#FFF",
@@ -32,8 +30,6 @@ exports = Class(GC.Application, function () {
 		});
 
 		var middle = new TextView({
-			x: 0,
-			y: 0,
 			text: "Click to dismiss!\nThis is the middle view.",
 			backgroundColor: "#080", //green
 			color: "#FFF",
@@ -44,8 +40,6 @@ exports = Class(GC.Application, function () {
 		});
 
 		var back = new TextView({
-			x: 0,
-			y: 0,
 			text: "Click to dismiss!\nThis is the back view.",
 			backgroundColor: "#F00", //red
 			color: "#FFF",

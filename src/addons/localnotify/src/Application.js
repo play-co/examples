@@ -3,7 +3,7 @@ import plugins.localnotify.localNotify as localNotify;
 
 exports = Class(GC.Application, function () {
 
-	this.addIt(name, secondsAhead, body) {
+	this.addIt = function(name, secondsAhead, body) {
 		localNotify.add({
 			name: name,
 			badgeIncrement: true,

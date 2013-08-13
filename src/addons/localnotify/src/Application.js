@@ -1,5 +1,5 @@
 import ui.TextView as TextView;
-import plugins.localNotify as localNotify;
+import plugins.localnotify.localNotify as localNotify;
 
 exports = Class(GC.Application, function () {
 

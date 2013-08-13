@@ -38,14 +38,14 @@ exports = Class(GC.Application, function () {
 		});
 	}
 
-	this.addIt = function(name, secondsAhead, body) {
+	this.addIt = function(name, secondsAhead, text) {
 		localNotify.add({
 			name: name,
 			number: 1,
 			sound: true,
 			action: "Respond",
 			title: "Stuff Happened",
-			body: body,
+			text: text,
 			delay: {
 				seconds: secondsAhead
 			},

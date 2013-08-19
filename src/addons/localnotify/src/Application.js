@@ -75,20 +75,45 @@ exports = Class(GC.Application, function () {
 		this.remove20 = this.makeButton("Remove 20 seconds ahead", function() {
 			localNotify.remove("set20");
 		});
-		this.removeAll = this.makeButton("Remove all notifications", function() {
+		this.removeAll = this.makeButton("Clear all", function() {
 			localNotify.clear();
+			this.notifyInfo.setText("");
 		});
 		this.get20 = this.makeButton("Dump 20 second notify", function() {
 			localNotify.get("set20", function(obj) {
 				logger.log("{LocalNotify} 20 second event info:", JSON.stringify(obj, undefined, 4));
-			});
+				if (obj) {
+					this.notifyInfo.setText("Got info for: " + obj.name);
+				} else {
+					this.notifyInfo.setText("No 20 second info");
+				}
+			}.bind(this));
 		});
 		this.list = this.makeButton("Dump all", function() {
 			localNotify.list(function(objs) {
 				logger.log("{LocalNotify} All scheduled events:", JSON.stringify(objs, undefined, 4));
-			});
+				if (objs) {
+					this.notifyInfo.setText("Got info for " + objs.length + " alarm(s)");
+				} else {
+					this.notifyInfo.setText("ERROR");
+				}
+			}.bind(this));
 		});
+		this.notifyInfo = new TextView({
+			superview: this.view,
+			layout: "box",
+			text: "(lastNotify)",
+			color: "white",
+			flex: 1
+		});
+
+		localNotify.onNotify = function(info) {
+			logger.log("Got notification:", JSON.stringify(info, undefined, 4));
+
+			this.notifyInfo.setText("Got: " + info.name);
+		}.bind(this);
 	};
 	
 	this.launchUI = function () {};
 });
+

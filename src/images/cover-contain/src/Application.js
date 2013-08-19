@@ -1,7 +1,4 @@
 //# Cover/Contain Image Scaling <a title="View raw file" href="https://raw.github.com/gameclosure/examples/master/src/images/cover-contain/src/Application.js"><img src="../../include/download_icon.png" class="icon"></a>
-//Given the following image:
-//<img src="./doc/window.png" alt="button image" class="screenshot" style="display:block;width:200px;">
-
 //This demo shows how to display images with cover and contain scaling.
 
 //The debugging flag of the `ImageScaleView` is set to true so you can see the view bounds.

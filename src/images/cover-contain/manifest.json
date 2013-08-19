@@ -28,7 +28,7 @@
 		"version": "1.0.0",
 		"icons": {}
 	},
-	"sdkVersion": "release-0.1.30",
+	"sdkVersion": "release-0.1.33",
 	"description": "Using Cover/Contain image scaling",
 	"doc": "http://doc.gameclosure.com/example/images-cover-contain/",
 	"icon": false,

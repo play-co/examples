@@ -4,6 +4,7 @@ import ui.widget.ButtonView as ButtonView;
 import device;
 
 exports = Class(GC.Application, function () {
+	// This convenience function makes some pretty buttons for each of the test features
 	this.makeButton = function(title, onUp) {
 		return new ButtonView({
 			superview: this.view,
@@ -38,6 +39,7 @@ exports = Class(GC.Application, function () {
 		});
 	}
 
+	// This function adds a local notification "Stuff Happened"
 	this.addIt = function(name, secondsAhead, text) {
 		localNotify.add({
 			name: name,
@@ -60,25 +62,38 @@ exports = Class(GC.Application, function () {
 		this.view.style.layout = "linear";
 		this.view.style.direction = "vertical";
 
+		// Send an immediate notification (just a test case, not very practical..)
 		this.set0 = this.makeButton("Set immediate", function() {
 			this.addIt("set0", 0, "Fast notification test");
 		});
+
+		// Add a 10 second notification for testing
 		this.set10 = this.makeButton("Set 10 seconds ahead", function() {
 			this.addIt("set10", 10, "10 second notification test");
 		});
+
+		// Add a second 20-second notification for testing
 		this.set20 = this.makeButton("Set 20 seconds ahead", function() {
 			this.addIt("set20", 20, "20 second notification test");
 		});
+
+		// Remove the 10 second one
 		this.remove10 = this.makeButton("Remove 10 seconds ahead", function() {
 			localNotify.remove("set10");
 		});
+
+		// Remove the 20 second one
 		this.remove20 = this.makeButton("Remove 20 seconds ahead", function() {
 			localNotify.remove("set20");
 		});
+
+		// Remove all notifications
 		this.removeAll = this.makeButton("Clear all", function() {
 			localNotify.clear();
 			this.notifyInfo.setText("");
 		});
+
+		// Get the 20 second notification info
 		this.get20 = this.makeButton("Dump 20 second notify", function() {
 			localNotify.get("set20", function(obj) {
 				logger.log("{LocalNotify} 20 second event info:", JSON.stringify(obj, undefined, 4));
@@ -89,6 +104,8 @@ exports = Class(GC.Application, function () {
 				}
 			}.bind(this));
 		});
+
+		// Dump all notification information to console
 		this.list = this.makeButton("Dump all", function() {
 			localNotify.list(function(objs) {
 				logger.log("{LocalNotify} All scheduled events:", JSON.stringify(objs, undefined, 4));
@@ -99,6 +116,8 @@ exports = Class(GC.Application, function () {
 				}
 			}.bind(this));
 		});
+
+		// An info text box
 		this.notifyInfo = new TextView({
 			superview: this.view,
 			layout: "box",
@@ -107,6 +126,7 @@ exports = Class(GC.Application, function () {
 			flex: 1
 		});
 
+		// Handle notifications when they expire.  Startup notifications get mixed in here
 		localNotify.onNotify = function(info) {
 			logger.log("Got notification:", JSON.stringify(info, undefined, 4));
 

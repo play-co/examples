@@ -1,6 +1,9 @@
 src/*/*/resources/fonts/fontsheetSizeMap.json
 src/*/*/build
+src/*/*/resources/splash
+src/*/*/resources/icons
 src/*/*/sdk
+sdk
 html/
 .DS_Store
 metadata.json

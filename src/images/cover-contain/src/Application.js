@@ -45,9 +45,7 @@ exports = Class(GC.Application, function () {
 			isTall = !isTall;
 			var cur = isTall ? 'tall' : 'short';
 			var next = isTall ? 'short' : 'tall';
-			isv.updateOpts({
-				image: 'resources/images/' + cur + '.jpg'
-			});
+			isv.setImage('resources/images/' + cur + '.jpg');
 			kittyImage.setText('current: ' + cur + ', next: ' + next);
 		};
 		kittyImage.on('InputSelect', updateKittyImage);

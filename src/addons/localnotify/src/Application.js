@@ -1,7 +1,11 @@
 import ui.TextView as TextView;
-import plugins.localnotify.localNotify as localNotify;
 import ui.widget.ButtonView as ButtonView;
 import device;
+
+// Import the LocalNotify plugin
+import plugins.localnotify.localNotify as localNotify;
+
+// Note that the LocalNotify plugin is also specified in the addons section of the manifest.json
 
 exports = Class(GC.Application, function () {
 	// This convenience function makes some pretty buttons for each of the test features
@@ -136,4 +140,7 @@ exports = Class(GC.Application, function () {
 	
 	this.launchUI = function () {};
 });
+
+//The output should look like this screenshot:
+//<img src="./doc/screenshot.png" alt="screenshot" class="screenshot">
 

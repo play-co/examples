@@ -1,7 +1,7 @@
 {
 	"appID": "ae79c9f9ece1462595e2439c195a2d66",
-	"shortName": "localnotify",
-	"title": "localnotify",
+	"shortName": "LocalNotify",
+	"title": "Addons: Local Notifications",
 	"studio": {
 		"name": "Example Studio Name",
 		"domain": "studio.example.com",
@@ -10,28 +10,18 @@
 	"supportedOrientations": [
 		"portrait"
 	],
+	"group": "addons",
+	"description": "Example of using LocalNotify addon",
+	"doc": "http://doc.gameclosure.com/example/addons-localnotify/",
 	"addons": [
 		"localnotify"
 	],
-	"description": "",
-	"icon": "resources/icons/icon512.png",
+	"icon": false,
 	"splash": {
-		"autoHide": true,
-		"portrait480": "resources/splash/portrait480.png",
-		"portrait960": "resources/splash/portrait960.png",
-		"portrait1024": "resources/splash/portrait1024.png",
-		"portrait1136": "resources/splash/portrait1136.png",
-		"portrait2048": "resources/splash/portrait2048.png",
-		"landscape768": "resources/splash/landscape768.png",
-		"landscape1536": "resources/splash/landscape1536.png"
 	},
 	"android": {
 		"versionCode": 1,
 		"icons": {
-			"36": "resources/icons/android36.png",
-			"48": "resources/icons/android48.png",
-			"72": "resources/icons/android72.png",
-			"96": "resources/icons/android96.png"
 		}
 	},
 	"ios": {
@@ -39,11 +29,6 @@
 		"appleID": "12345678",
 		"version": "1.0.0",
 		"icons": {
-			"57": "resources/icons/ios57.png",
-			"72": "resources/icons/ios72.png",
-			"114": "resources/icons/ios114.png",
-			"144": "resources/icons/ios144.png",
-			"renderGloss": true
 		}
 	},
 	"sdkVersion": "release-0.1.32"

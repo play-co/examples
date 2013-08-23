@@ -18,6 +18,9 @@
 	"ios": {
 		"icons": {}
 	},
+	"ttf": [
+		"resources/fonts/BPreplayBold.ttf"
+	],
 	"description": "TTF fonts",
 	"doc": "http://doc.gameclosure.com/example/text-fonts-ttf/",
 	"resources": {},

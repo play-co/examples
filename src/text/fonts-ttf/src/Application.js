@@ -11,7 +11,7 @@ exports = Class(GC.Application, function () {
 		new TextView({
 			superview: this.view,
 			layout: 'box',
-			fontFamily: 'BPreplay',
+			fontFamily: 'BPreplayBold',
 			text: "The quick brown fox jumped over the lazy dog's back",
 			size: 30,
 			wrap: true

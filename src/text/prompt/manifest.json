@@ -1,8 +1,8 @@
 {
     "appID": "73221e0165e345a890b28201bbd54900",
     "shortName": "prompt",
-    "title": "Prompt demo",
-    "group": "ui",
+    "title": "Text Prompt",
+    "group": "text",
     "studio": {
         "name": "GameClosure demo",
         "domain": "gameclosure.com",

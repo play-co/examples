@@ -10,7 +10,7 @@
 	"supportedOrientations": [
 		"portrait"
 	],
-	"group": "ui",
+	"group": "text",
 	"description": "Getting text input",
 	"doc": "http://doc.gameclosure.com/example/text-input/",
 	"resources": {},

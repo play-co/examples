@@ -1,0 +1,36 @@
+{
+	"appID": "00000000000000000000000000000000",
+	"shortName": "imagesTiled",
+	"title": "ImageScaleView: Tiling",
+	"studio": {
+		"name": "GameClosure demo",
+		"domain": "gameclosure.com",
+		"stagingDomain": "staging.example.com"
+	},
+	"supportedOrientations": [
+		"portrait"
+	],
+	"group": "graphics",
+	"resources": {},
+	"targets": {},
+	"groups": {},
+	"android": {
+		"apsalarKey": "",
+		"apsalarSecret": "",
+		"versionCode": 1,
+		"icons": {}
+	},
+	"ios": {
+		"apsalarKey": "",
+		"apsalarSecret": "",
+		"bundleID": "example.bundle",
+		"appleID": "1234567",
+		"version": "1.0.0",
+		"icons": {}
+	},
+	"sdkVersion": "release-0.1.34",
+	"description": "Using Tiled ImageScaleViews",
+	"doc": "http://doc.gameclosure.com/example/images-tiled/",
+	"icon": false,
+	"splash": {}
+}

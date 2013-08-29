@@ -2,11 +2,11 @@
 //This demo shows how to display tiled images.
 
 //The debugging flag of the `ImageScaleView` is set to true so you can see the view bounds.
-
 import ui.ImageScaleView;
 
 exports = Class(GC.Application, function () {
 	this.initUI = function () {
+		// create a tiling ImageScaleView
 		new ui.ImageScaleView({
 			superview: this,
 			image: 'resources/images/flower.png',
@@ -19,7 +19,6 @@ exports = Class(GC.Application, function () {
 			centerY: true,
 			debug: true
 		});
-
 	};
 });
 

@@ -134,7 +134,11 @@ exports = Class(GC.Application, function () {
 		localNotify.onNotify = function(info) {
 			logger.log("Got notification:", JSON.stringify(info, undefined, 4));
 
-			this.notifyInfo.setText("Got: " + info.name);
+			if (info.launched) {
+				this.notifyInfo.setText("Launched: " + info.name);
+			} else {
+				this.notifyInfo.setText("Got: " + info.name);
+			}
 		}.bind(this);
 	};
 	

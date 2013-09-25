@@ -17,19 +17,16 @@
 		"localnotify"
 	],
 	"icon": false,
-	"splash": {
-	},
+	"splash": {},
 	"android": {
 		"versionCode": 1,
-		"icons": {
-		}
+		"icons": {}
 	},
 	"ios": {
 		"bundleID": "example.bundle",
 		"appleID": "12345678",
 		"version": "1.0.0",
-		"icons": {
-		}
+		"icons": {}
 	},
 	"sdkVersion": "release-0.1.32"
 }
